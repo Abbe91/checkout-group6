@@ -2,17 +2,29 @@ import React, { CSSProperties } from 'react';
 
 interface Props{
     name: string
+    price: number
 }
 function ProductName(props: Props){
     let productnameStyle: CSSProperties={
-        fontSize: 24,
+        fontSize: 20,
         textAlign: "center",
         fontFamily: "Arial, Helvetica, sans-serif",
-        margin: 20,
+        margin: 10,
+        
+    }
+    let priceStyle: CSSProperties={
+        fontSize: 10,
+        textAlign: "center",
+        fontFamily: "Arial, Helvetica, sans-serif",
+        margin: 10,
         
     }
     return(
-        <h1 style = {productnameStyle}> {props.name}</h1>
+        <div>
+            <h1 style = {productnameStyle}> {props.name}</h1>
+            <h2 style = {priceStyle}> {props.price} :- </h2>
+        </div>
+        
     );
 }
 

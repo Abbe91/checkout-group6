@@ -50,7 +50,7 @@ function ProductList(props: Props){
                         <ProductImage img = {item.img}/>
                         <hr/>
                     </div>
-                    <ProductName name = {item.name}/>
+                    <ProductName name = {item.name} price = {item.price}/>
                     <Button style = {ButtonStyle}   onClick={() => {addProduct(item)}}   type="primary" icon={<PlusOutlined />}>
                     Add to cart
                      </Button>
