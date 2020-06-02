@@ -1,21 +1,30 @@
 
 import React, { CSSProperties } from 'react';
-import ButtonArea from './ButtonArea';
 import ProductName from './ProductName';
 import ProductImage from './ProductImage';
 import {Product} from './Products'
+import { Button} from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
+
 
 
 interface Props{
   products: Product[]
+  
 }
 function ProductList(props: Props){
-   
+        let ButtonStyle: CSSProperties = {
+        margin: 0,
+        position: 'absolute',
+        marginLeft: '40px'
+
+    }
+    
 
         let ProductListStyle: CSSProperties = {
         display: 'inline-block',
         margin: 10,
-        height: 300,
+        height: 400,
         width: 200,
         padding: 0,
         backgroundColor: '#FFF',
@@ -24,16 +33,27 @@ function ProductList(props: Props){
         };
 
         
-    let singleItem= props.products.map(function(item){
-  
+     let inCart:string[] = [];
+     function addProduct(item: any){
+        inCart.push(item);
+        
+        localStorage.cart = JSON.stringify(inCart);
 
-        return  <div key = {item.name} style={ProductListStyle}>
-                    <div style = {{backgroundColor: 'lightgrey'}}>
+    } 
+    let singleItem= props.products.map(function(item){
+        console.log(item)
+          
+      
+
+        return  <div key = {item.id} style={ProductListStyle}>
+                    <div >
                         <ProductImage img = {item.img}/>
                         <hr/>
                     </div>
                     <ProductName name = {item.name}/>
-                    <ButtonArea/>
+                    <Button style = {ButtonStyle}   onClick={() => {addProduct(item)}}   type="primary" icon={<PlusOutlined />}>
+                    Add to cart
+                     </Button>
                  </div>
         
     });
