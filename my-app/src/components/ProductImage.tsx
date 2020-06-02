@@ -11,13 +11,13 @@ function ProductImage(props:Props){
         marginLeft: 25,
         marginTop: 20,
         width: 150,
-        height: 150,
-        borderRadius: "50%",
-        objectFit: 'cover',
-        backgroundColor: 'grey'
+        height: 250,
+        objectFit: 'contain',
+        
     }
+    const image = require("./../image/"+props.img)
     return(
-        <img src={props.img} alt="productpic" style={imageStyle} />
+        <img src={image} alt="productpic" style={imageStyle} />
     );
 }
 
