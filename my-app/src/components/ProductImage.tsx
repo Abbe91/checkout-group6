@@ -17,7 +17,7 @@ function ProductImage(props:Props){
         backgroundColor: 'grey'
     }
     return(
-        <img src={props.img} alt="profilepic" style={imageStyle} />
+        <img src={props.img} alt="productpic" style={imageStyle} />
     );
 }
 
