@@ -1,6 +1,5 @@
 
 import React, { CSSProperties } from 'react';
-import ButtonArea from './ButtonArea';
 import ProductName from './ProductName';
 import ProductImage from './ProductImage';
 import {Product} from './Products'
@@ -8,8 +7,10 @@ import { Button} from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 
+
 interface Props{
   products: Product[]
+  
 }
 function ProductList(props: Props){
         let ButtonStyle: CSSProperties = {
@@ -18,6 +19,7 @@ function ProductList(props: Props){
         marginLeft: '40px'
 
     }
+    
 
         let ProductListStyle: CSSProperties = {
         display: 'inline-block',
@@ -30,11 +32,12 @@ function ProductList(props: Props){
         filter: "drop-shadow(0px 0px 5px #555)",
         };
 
+        
+     let inCart:string[] = [];
      function addProduct(item: any){
-        let inCart = [];
         inCart.push(item);
-        let localCart = JSON.stringify(inCart);
-        localStorage.cart = localCart;
+        
+        localStorage.cart = JSON.stringify(inCart);
 
     } 
     let singleItem= props.products.map(function(item){
