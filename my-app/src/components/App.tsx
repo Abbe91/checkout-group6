@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
 import { Layout } from 'antd';
-
+import Form from './CardForm'
 import Sider from './Sider';
-import Header from './Header'
-import Footer from './Footer'
-import Content from './Content'
+import Header from './Header';
+import Footer from './Footer';
+import Content from './Content';
+
+
 
 
 
@@ -19,6 +21,7 @@ function App() {
       <Sider />
       <Layout>
         <Content />
+          <Form />
         <Footer />
       </Layout>
       </Layout>
