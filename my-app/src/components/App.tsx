@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Layout } from 'antd';
-import Form from './CardForm'
+import Radiobutton from './Radio'
 import Sider from './Sider';
 import Header from './Header';
 import Footer from './Footer';
@@ -21,7 +21,7 @@ function App() {
       <Sider />
       <Layout>
         <Content />
-          <Form />
+        <Radiobutton />
         <Footer />
       </Layout>
       </Layout>
