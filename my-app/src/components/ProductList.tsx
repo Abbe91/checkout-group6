@@ -5,6 +5,7 @@ import ProductImage from './ProductImage';
 import {Product} from './Products'
 import { Button} from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 
 
@@ -12,6 +13,7 @@ interface Props{
   products: Product[]
   
 }
+let inCart:string[] = [];
 function ProductList(props: Props){
         let ButtonStyle: CSSProperties = {
         margin: 0,
@@ -33,7 +35,6 @@ function ProductList(props: Props){
         };
 
         
-     let inCart:string[] = [];
      function addProduct(item: any){
         inCart.push(item);
         
@@ -46,14 +47,18 @@ function ProductList(props: Props){
       
 
         return  <div key = {item.id} style={ProductListStyle}>
-                    <div >
+                <Link
+                 to = {"/product/" + item.name}
+                  >
+                        <div >
                         <ProductImage img = {item.img}/>
                         <hr/>
-                    </div>
-                    <ProductName name = {item.name} price = {item.price}/>
-                    <Button style = {ButtonStyle}   onClick={() => {addProduct(item)}}   type="primary" icon={<PlusOutlined />}>
-                    Add to cart
-                     </Button>
+                        </div>
+                        <ProductName name = {item.name} price = {item.price}/>
+                 </Link>
+                        <Button style = {ButtonStyle}   onClick={() => {addProduct(item)}}   type="primary" icon={<PlusOutlined />}>
+                        Add to cart
+                        </Button>
                  </div>
         
     });
@@ -61,8 +66,9 @@ function ProductList(props: Props){
     return(
         
         <div>
-        {singleItem}
+            {singleItem}
         </div>
+        
     );
 }
 
