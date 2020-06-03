@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Layout } from 'antd';
-import { gray } from 'color-name';
+
 
 
 const { Footer } = Layout;
