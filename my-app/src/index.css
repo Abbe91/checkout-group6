@@ -16,8 +16,11 @@ body {
     "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
   line-height: 1.5;
-  color: #24292e;
-  background-color: #fff;
+  border-radius: 30px;
+  overflow-y: scroll;
+  padding: 0 28px;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .app {
@@ -26,5 +29,56 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.layout{  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  max-width: 720px;
+  margin: 0 auto;
+ 
+}
+.layout::before {
+  content: "";
+  display: block;
+  position: fixed;
+  width: 300%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  border-radius: 100%;
+  transform: translateX(-50%) skewY(-8deg);
+  background-color: blue;
+  z-index: -1;
+  animation: wave 8s ease-in-out infinite alternate;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(-50%) skew(0deg, -8deg);
+  }
+
+  100% {
+    transform: translateX(-30%) skew(8deg, -4deg);
+  }
+}
+
+.container{
+  background-color: white;
+  box-sizing: border-box;
+  width: 340px;
+  height: 600px;
+  box-shadow: 0 3.2px 2.2px rgba(0, 0, 0, 0.02),
+    0 7px 5.4px rgba(0, 0, 0, 0.028), 0 12.1px 10.1px rgba(0, 0, 0, 0.035),
+    0 19.8px 18.1px rgba(0, 0, 0, 0.042), 0 34.7px 33.8px rgba(0, 0, 0, 0.05),
+    0 81px 81px rgba(0, 0, 0, 0.07);
+  border-radius: 30px; 
+  padding: 0 28px;
+  position: relative;
+  margin-bottom: 20px;
 }
 

@@ -9,28 +9,19 @@ import Content from './Content';
 import { BrowserRouter } from 'react-router-dom';
 
 
-
-
-
-
 function App() {
   return (
     <div className="App">
 
       <BrowserRouter>
-        <Layout>
-          <Header />
-
-          <Layout>
-            <Sider />
+   
+        <Layout className="layout">
+        <Header />   
             <Layout>
-
-              <Content />
-              
+              <Content />              
               <Footer />
             </Layout>
-          </Layout>
-        </Layout>
+          </Layout>     
       </BrowserRouter>
 
     </div>
