@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input, Col } from 'antd';
-import { DatePicker } from 'antd';
+
 
 
 
@@ -9,10 +9,7 @@ import { DatePicker } from 'antd';
 
 class FormSwish extends  React.Component {
 
-  state ={
-    value: ""
-  }
-  
+
 
   render() {
     return (
@@ -20,8 +17,11 @@ class FormSwish extends  React.Component {
         <h1>The phone you are going to swish from</h1>
         <Col span={5}>
           <Input
-          type="text"
-          placeholder="Name on Card" 
+          type="number"
+        //   pattern="\d*"
+        //   maxlength="4"
+          placeholder="The phone you are going to swish from"
+          
      />
         </Col>
 
