@@ -12,7 +12,7 @@ function header(){
 
   <Avatar style={{float:'right'}} src="../image/cart.png" />
   <Link
-    to = {"/main" }
+    to = "/" 
   >
         <Title style={{color:'white'}} level={3}>Checkout-Reactjs</Title>
   </Link>

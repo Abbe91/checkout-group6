@@ -2,9 +2,7 @@ import React from 'react';
 import './App.css';
 import { Layout } from 'antd';
 import Views from './Views'
-import {BrowserRouter} from 'react-router-dom';
-import Products from './Products';
-import ProductList from './ProductList';
+
 // import Form from './CardForm';
 const { Content } = Layout;
 
@@ -19,13 +17,10 @@ function content(){
                 great prices, reliable service, fast delivery and premium customer support.</h2>
 
             <div style={{ backgroundColor:"white"}}>
-                {/* <ProductList 
-                    products = {Products}
-                />
-                 */}
-                  <BrowserRouter>
+                
+                  
                     <Views/>
-                 </BrowserRouter>
+                 
             </div>
           
         </Content>
