@@ -10,10 +10,6 @@ import Products from './Products';
 
 
 
-/* interface Props{
-  products: Product[]
-  
-} */
 let inCart:string[] = [];
 function ProductList(){
         let ButtonStyle: CSSProperties = {
