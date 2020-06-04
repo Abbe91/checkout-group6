@@ -38,3 +38,26 @@
     transform: rotate(360deg);
   }
 }
+
+.ButtonStyle {
+  cursor: pointer;
+  background-color: rgb(65, 65, 216);
+  font-weight: bold;
+  font-size: 14px;
+  box-sizing: border-box;
+  height: 46px;
+  padding: 16px 20px;
+  border-radius: 100px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.4s, background-color 0.2s;
+  user-select: none;
+  white-space: nowrap;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+  button :hover {
+    background-color: lighten(blue, 10%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }

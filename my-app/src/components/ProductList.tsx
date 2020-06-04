@@ -11,26 +11,7 @@ import Products from './Products';
 
 
 let inCart:string[] = [];
-function ProductList(){
-        let ButtonStyle: CSSProperties = {
-        margin: 0,
-        position: 'absolute',
-        marginLeft: '40px'
-
-    }
-    
-
-        let ProductListStyle: CSSProperties = {
-        display: 'inline-block',
-        margin: 10,
-        height: 400,
-        width: 200,
-        padding: 0,
-        backgroundColor: '#FFF',
-        WebkitFilter: "drop-shadow(0px 0px 5px #555)",
-        filter: "drop-shadow(0px 0px 5px #555)",
-        };
-
+function ProductList(){       
         
      function addProduct(item: any){
         inCart.push(item);
@@ -38,12 +19,9 @@ function ProductList(){
         localStorage.cart = JSON.stringify(inCart);
 
     } 
-    let singleItem= Products.map(function(item){
-        
-          
-      
+    let singleItem= Products.map(function(item){  
 
-        return  <div key = {item.id} style={ProductListStyle}>
+        return <div className="container" key = {item.id} style={ProductListStyle}>
                 <Link
                  to = {"/product/" + item.name}
                   >
@@ -69,6 +47,22 @@ function ProductList(){
     );
 }
 
+const ButtonStyle: CSSProperties = {
+    margin: 0,
+    position: 'absolute',
+    marginLeft: '40px',
+    borderRadius: '15px'
+
+}
+    const ProductListStyle: CSSProperties = {
+    display: 'inline-block',
+    margin: 10,
+    height: 400,
+    width: 200,
+    padding: 0,
+
+    };
 
 
 export default ProductList;
+
