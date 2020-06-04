@@ -6,6 +6,7 @@ import Sider from './Sider';
 import Header from './Header';
 import Footer from './Footer';
 import Content from './Content';
+import { BrowserRouter } from 'react-router-dom';
 
 
 
@@ -15,17 +16,23 @@ import Content from './Content';
 function App() {
   return (
     <div className="App">
-      <Layout>
-      <Header />
-      <Layout>
-      <Sider />
-      <Layout>
-        <Content />
-        <Radiobutton />
-        <Footer />
-      </Layout>
-      </Layout>
-    </Layout>
+ensar-routing-test
+      <BrowserRouter>
+        <Layout>
+          <Header />
+
+          <Layout>
+            <Sider />
+            <Layout>
+
+              <Content />
+              <Radiobutton />
+              <Footer />
+            </Layout>
+          </Layout>
+        </Layout>
+      </BrowserRouter>
+
     </div>
   );
 }

@@ -1,11 +1,16 @@
 import React from 'react';
 import './App.css';
+
 import { Layout,Typography } from 'antd';
 import Products from './Products';
 import ProductList from './ProductList';
+import Views from './Views'
+
 // import Form from './CardForm';
 const { Content } = Layout;
 const { Text } = Typography;
+
+
 
 function content(){
     return(
@@ -17,13 +22,12 @@ function content(){
                 
 
             <div style={{ backgroundColor:"white"}}>
-                <ProductList 
-                    products = {Products}
-                />
-            </div>
-            <div>
                 
+                  
+                    <Views/>
+                 
             </div>
+          
         </Content>
   );
   

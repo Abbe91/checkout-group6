@@ -5,14 +5,17 @@ import ProductImage from './ProductImage';
 import {Product} from './Products'
 import { Button} from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
+import Products from './Products';
 
 
 
-interface Props{
+/* interface Props{
   products: Product[]
   
-}
-function ProductList(props: Props){
+} */
+let inCart:string[] = [];
+function ProductList(){
         let ButtonStyle: CSSProperties = {
         margin: 0,
         position: 'absolute',
@@ -33,27 +36,30 @@ function ProductList(props: Props){
         };
 
         
-     let inCart:string[] = [];
      function addProduct(item: any){
         inCart.push(item);
         
         localStorage.cart = JSON.stringify(inCart);
 
     } 
-    let singleItem= props.products.map(function(item){
-        console.log(item)
+    let singleItem= Products.map(function(item){
+        
           
       
 
         return  <div key = {item.id} style={ProductListStyle}>
-                    <div >
+                <Link
+                 to = {"/product/" + item.name}
+                  >
+                        <div >
                         <ProductImage img = {item.img}/>
                         <hr/>
-                    </div>
-                    <ProductName name = {item.name} price = {item.price}/>
-                    <Button style = {ButtonStyle}   onClick={() => {addProduct(item)}}   type="primary" icon={<PlusOutlined />}>
-                    Add to cart
-                     </Button>
+                        </div>
+                        <ProductName name = {item.name} price = {item.price}/>
+                 </Link>
+                        <Button style = {ButtonStyle}   onClick={() => {addProduct(item)}}   type="primary" icon={<PlusOutlined />}>
+                        Add to cart
+                        </Button>
                  </div>
         
     });
@@ -61,9 +67,12 @@ function ProductList(props: Props){
     return(
         
         <div>
-        {singleItem}
+            {singleItem}
         </div>
+        
     );
 }
+
+
 
 export default ProductList;
