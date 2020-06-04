@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Layout } from 'antd';
-import Form from './CardForm'
+import Radiobutton from './Radio'
 import Sider from './Sider';
 import Header from './Header';
 import Footer from './Footer';
@@ -16,6 +16,7 @@ import { BrowserRouter } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
+ensar-routing-test
       <BrowserRouter>
         <Layout>
           <Header />
@@ -25,12 +26,13 @@ function App() {
             <Layout>
 
               <Content />
-              {/* <Form />   */}
+              <Radiobutton />
               <Footer />
             </Layout>
           </Layout>
         </Layout>
       </BrowserRouter>
+
     </div>
   );
 }
