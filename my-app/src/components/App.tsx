@@ -16,7 +16,7 @@ import { BrowserRouter } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-ensar-routing-test
+
       <BrowserRouter>
         <Layout>
           <Header />
@@ -26,7 +26,7 @@ ensar-routing-test
             <Layout>
 
               <Content />
-              <Radiobutton />
+              
               <Footer />
             </Layout>
           </Layout>
