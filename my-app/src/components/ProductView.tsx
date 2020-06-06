@@ -1,63 +1,68 @@
-import React, { CSSProperties } from 'react';
-import { RouteComponentProps} from 'react-router-dom';
-import {Link} from 'react-router-dom'
+import React, { CSSProperties, Component } from 'react';
+import {CartConsumer, ContextState} from './context/cartContext'; 
+import {withRouter} from 'react-router-dom'
 import Products from './Products'
 import { PlusOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-interface Params {
-    name: string
+import {useLocation} from 'react-router-dom';
+import { RouteProps } from 'react-router';
+
+
+
+
+export interface State {
+    location: any
+    pathname: any
 }
-interface Props extends RouteComponentProps<Params>{
-    
-}
-function getCart() {
-    //return JSON.parse(localStorage.getItem('cart')) || [];
-    //inCart.push(item);
-    //localStorage.cart = JSON.stringify(inCart);
-    let inCart:string[] = []!;
-    
-    //inCart  = localStorage.getItem('cart')!; 
-    console.log(inCart);
-    //let result = inCart.split(",");
-  }
-getCart();
-export default function ProductView(props: Props){
-
-    let ButtonStyle: CSSProperties = {
-        margin: 0,
-        position: 'absolute',
-        marginLeft: '40px'
-
-    }
-  /*   function addProduct(item: any){
-        getCart().push(item);
-        
-        localStorage.cart = JSON.stringify(inCart);
-
-    }  */
-    let newString = props.location.pathname.replace("/product/", "");
-
-    let productToDisplay = Products.filter(function(product) {
-        return product.name === newString;
-    });
-  
-    
-        return(
-            <div>
-                <Link to="/"
-                    >
-                <h1>Back to Main</h1>
-                    </Link>
-            <h1>{productToDisplay[0].name} </h1>
-            <h1>{productToDisplay[0].description} </h1>
-            <h1>{productToDisplay[0].price} </h1>
-            {/* <Button style = {ButtonStyle}  
-             onClick={() => {addProduct(productToDisplay)}}   
-             type="primary" icon={<PlusOutlined />}>
-                        Add to cart
-            </Button> */}
-            </div>
-        );
-    
+interface Props {
+    location: any
+    pathname: any
 }
 
+export class ProductView extends React.Component<Props & RouteProps, State>{
+
+        constructor(props: Props){
+            super(props)
+           
+        }
+
+     
+
+        render(){
+            
+            console.log(this.props.location)
+            let test = this
+            
+            let newString = test.props.location.pathname.replace("/product/", "");
+
+            let productToDisplay = Products.filter(function(product) {
+            return product.name === newString;
+        });  
+            return(
+                <CartConsumer>
+                    {(contextData: ContextState) =>{
+                        return(
+                            <div>
+                
+                            <h1>{productToDisplay[0].name} </h1>
+                            <h1>{productToDisplay[0].description} </h1>
+                            <h1>{productToDisplay[0].price} </h1> 
+                            <Button onClick={() => contextData.addProductToCart(productToDisplay[0])} type="primary" icon={<PlusOutlined />}>
+                                                Add to cart
+                                                </Button>
+                            </div>
+                        )
+                    }}
+                </CartConsumer>
+            )
+        }
+}
+
+let ButtonStyle: CSSProperties = {
+    margin: 0,
+    position: 'absolute',
+    marginLeft: '40px'
+
+}
+
+export default ProductView
