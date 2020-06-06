@@ -50,6 +50,9 @@ export class ProductView extends React.Component<Props & RouteProps, State>{
                             <Button onClick={() => contextData.addProductToCart(productToDisplay[0])} type="primary" icon={<PlusOutlined />}>
                                                 Add to cart
                                                 </Button>
+                                                <Button onClick={() => contextData.removeProductFromCart(productToDisplay[0])} type="primary" icon={<PlusOutlined />}>
+                                                Remove From Cart
+                                                </Button>
                             </div>
                         )
                     }}

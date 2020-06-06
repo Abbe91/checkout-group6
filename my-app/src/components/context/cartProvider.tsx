@@ -21,11 +21,21 @@ export class CartProvider extends Component<{}, ProviderState>{
         this.setState({cartList: clonedCart}, ()=> {console.log(this.state)})
     }
 
+    removeProductFromCart = (product: Product) =>{
+        const clonedCartTwo = Object.assign([], this.state.cartList)
+        const index = clonedCartTwo.indexOf(product);
+        if (index > -1){
+            clonedCartTwo.splice(index, 1);
+        }
+        this.setState({cartList: clonedCartTwo}, ()=> {console.log(this.state)})
+    }
+
     render(){
         return(
             <CartContext.Provider value={{
                 ...this.state,
-                addProductToCart: this.addProductToCart
+                addProductToCart: this.addProductToCart,
+                removeProductFromCart: this.removeProductFromCart
 
             }}>
                 {this.props.children}
