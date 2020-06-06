@@ -40,6 +40,9 @@ export class Cart extends Component<{}, State>{
                                                 <Button onClick={() => contextData.addProductToCart(product)} type="primary" icon={<PlusOutlined />}>
                                                 Add to cart
                                                 </Button>
+                                                <Button onClick={() => contextData.removeProductFromCart(product)} type="primary" icon={<PlusOutlined />}>
+                                                Remove From Cart
+                                                </Button>
                                              </div>
 
                                         )
