@@ -8,6 +8,11 @@ import { PlusOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import {ProviderState} from './context/cartProvider';
 
+export interface State {
+    
+}
+
+
 export class Cart extends Component<{}, State>{
 
         constructor(props: {}){

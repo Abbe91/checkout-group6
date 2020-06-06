@@ -12,7 +12,9 @@ import {CartConsumer, ContextState} from './context/cartContext';
 
 
 
-
+export interface State {
+    
+}
 
 class ProductList extends Component<{}, State> {
 
@@ -20,42 +22,17 @@ class ProductList extends Component<{}, State> {
         super(props)
     }
 
- /*    let ButtonStyle: CSSProperties = {
-        margin: 0,
-        position: 'absolute',
-        marginLeft: '40px'
-
-    }
-
-
-    let ProductListStyle: CSSProperties = {
-        display: 'inline-block',
-        margin: 10,
-        height: 400,
-        width: 200,
-        padding: 0,
-        backgroundColor: '#FFF',
-        WebkitFilter: "drop-shadow(0px 0px 5px #555)",
-        filter: "drop-shadow(0px 0px 5px #555)",
-    };
- */
-
-   /*  function addProduct(item: any) {
-        inCart.push(item);
-
-        localStorage.cart = JSON.stringify(inCart);
-    } */
-   
-   
-   render(){
-       return (
-           <CartConsumer>
+    
+    
+    render(){
+        return (
+            <CartConsumer>
                {(contextData: ContextState) => {
                    return(
                        <div>
                            {Products.map((product) => {
                                return(
-                                   <div key = {product.id}>
+                                   <div key = {product.id} style = {ProductListStyle}>
                                     <Link to={"/product/" + product.name}>
                                        <div>
                                             <ProductImage img={product.img}/>
@@ -63,7 +40,7 @@ class ProductList extends Component<{}, State> {
                                        </div>
                                        <ProductName name = {product.name} price = {product.price}/>
                                     </Link>
-                                    <Button onClick={() => contextData.addProductToCart(product)} type="primary" icon={<PlusOutlined />}>
+                                    <Button style = {ButtonStyle} onClick={() => contextData.addProductToCart(product)} type="primary" icon={<PlusOutlined />}>
                                      Add to cart
                                     </Button>
                                    </div>
@@ -71,41 +48,53 @@ class ProductList extends Component<{}, State> {
                            })}
                        </div>
                    )
-               }}
+                }}
            </CartConsumer>
        )
    }
    
    
    
-   
-    /*  let singleItem = Products.map(function (item) {
-        return <div key={item.id} style={ProductListStyle}>
-            <Link to={"/product/" + item.name}>
-                <div >
-                    <ProductImage img={item.img} />
-                    <hr />
-                </div>
-                <ProductName name={item.name} price={item.price} />
-            </Link>
-            <Button style={ButtonStyle} onClick={() => { addProduct(item) }} type="primary" icon={<PlusOutlined />}>
-                Add to cart
-                        </Button>
-        </div>
-
-    }); */
-
-  /*   render (){
-        
-        return (
-
-        <div>
-            {singleItem}
-        </div>
-
-    )} */
 }
+        
+        
+        let ButtonStyle: CSSProperties = {
+            margin: 0,
+            position: 'absolute',
+            marginLeft: '40px'
+     
+        }
+     
+     
+        let ProductListStyle: CSSProperties = {
+            display: 'inline-block',
+            margin: 10,
+            height: 400,
+            width: 200,
+            padding: 0,
+            backgroundColor: '#FFF',
+            WebkitFilter: "drop-shadow(0px 0px 5px #555)",
+            filter: "drop-shadow(0px 0px 5px #555)",
+        };
+     
+     
+        
+        export default ProductList;
 
 
-
-export default ProductList;
+        /*  let singleItem = Products.map(function (item) {
+       return <div key={item.id} style={ProductListStyle}>
+       <Link to={"/product/" + item.name}>
+       <div >
+       <ProductImage img={item.img} />
+       <hr />
+       </div>
+       <ProductName name={item.name} price={item.price} />
+       </Link>
+       <Button style={ButtonStyle} onClick={() => { addProduct(item) }} type="primary" icon={<PlusOutlined />}>
+       Add to cart
+       </Button>
+       </div>
+       
+    }); */
+    
