@@ -63,7 +63,8 @@ class ProductList extends Component<{}, State> {
         let ButtonStyle: CSSProperties = {
             margin: 0,
             position: 'absolute',
-            marginLeft: '40px'
+            marginLeft: '40px',
+            borderRadius: 15
      
         }
      
@@ -74,6 +75,7 @@ class ProductList extends Component<{}, State> {
             height: 400,
             width: 200,
             padding: 0,
+            borderRadius: 15,
             backgroundColor: '#FFF',
             WebkitFilter: "drop-shadow(0px 0px 5px #555)",
             filter: "drop-shadow(0px 0px 5px #555)",
