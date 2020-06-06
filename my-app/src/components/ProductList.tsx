@@ -12,6 +12,7 @@ import {CartConsumer, ContextState} from './context/cartContext';
 
 
 
+
 export interface State {
     
 }
@@ -56,6 +57,7 @@ class ProductList extends Component<{}, State> {
    
    
 }
+
         
         
         let ButtonStyle: CSSProperties = {
@@ -79,22 +81,9 @@ class ProductList extends Component<{}, State> {
      
      
         
-        export default ProductList;
 
-
-        /*  let singleItem = Products.map(function (item) {
-       return <div key={item.id} style={ProductListStyle}>
-       <Link to={"/product/" + item.name}>
-       <div >
-       <ProductImage img={item.img} />
-       <hr />
-       </div>
-       <ProductName name={item.name} price={item.price} />
-       </Link>
-       <Button style={ButtonStyle} onClick={() => { addProduct(item) }} type="primary" icon={<PlusOutlined />}>
-       Add to cart
-       </Button>
-       </div>
-       
-    }); */
     
+
+
+export default ProductList;
+

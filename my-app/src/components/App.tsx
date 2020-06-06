@@ -10,28 +10,20 @@ import { BrowserRouter } from 'react-router-dom';
 import {CartProvider} from './context/cartProvider' 
 
 
-
-
-
-
 function App() {
   return (
     <div className="App">
 
       <BrowserRouter>
-        <Layout>
-          <Header />
-
-          <Layout>
-            <Sider />
+   
+        <Layout className="layout">
+           
             <Layout>
-
-              <Content />
-              
+            <Header />
+              <Content />              
               <Footer />
             </Layout>
-          </Layout>
-        </Layout>
+          </Layout>     
       </BrowserRouter>
 
     </div>

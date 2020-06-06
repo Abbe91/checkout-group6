@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import './App.css';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import Views from './Views';
@@ -9,22 +9,29 @@ const { Header } = Layout;
 
 function header() {
   return (
-    <Header style={{ padding: 10 }} >
+    <Header style={HeaderStyle} >
       <div>
 
         <Link to="/checkout" >
-          <Avatar style={{ float: 'right' }} icon = {<ShoppingCartOutlined />} />
+          <Avatar style={{ float: 'right' }} icon={<ShoppingCartOutlined />} />
         </Link>
 
-      </div> 
+      </div>
       <div>
 
         <Link to="/"  >
-          <Title style={{ color: 'white' }} level={3}>Checkout-Reactjs</Title>
+          <Title style={{ color: 'black' }} level={3}>Checkout-Reactjs</Title>
         </Link>
       </div>
     </Header>
   );
 
 }
+const HeaderStyle: CSSProperties = {
+  padding: 10,
+  maxWidth: '720px',
+  marginTop:'0px',
+  backgroundColor:'white'
+
+};
 export default withRouter(header);
