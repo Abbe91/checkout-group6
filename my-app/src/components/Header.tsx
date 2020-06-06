@@ -20,7 +20,7 @@ function header() {
       <div>
 
         <Link to="/"  >
-          <Title style={{ color: 'white' }} level={3}>Checkout-Reactjs</Title>
+          <Title style={{ color: 'black' }} level={3}>Checkout-Reactjs</Title>
         </Link>
       </div>
     </Header>
@@ -30,7 +30,8 @@ function header() {
 const HeaderStyle: CSSProperties = {
   padding: 10,
   maxWidth: '720px',
-  marginTop:'0px'
+  marginTop:'0px',
+  backgroundColor:'white'
 
 };
 export default withRouter(header);
