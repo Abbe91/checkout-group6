@@ -16,8 +16,9 @@ function App() {
       <BrowserRouter>
    
         <Layout className="layout">
-        <Header />   
+           
             <Layout>
+            <Header />
               <Content />              
               <Footer />
             </Layout>
