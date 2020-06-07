@@ -16,15 +16,11 @@ function Checkout(){
     return(
         
         <div>
-<<<<<<< HEAD
+
             <Cart/>
             <Radiobutton />
             <CheckoutFracksatt/>
-=======
-            <h1>Choose how you want to pay</h1>
-            <Radiobutton />
-            
->>>>>>> copy-from-betalning
+
         </div>
         
     );
