@@ -8,6 +8,7 @@ import CheckoutFracksatt from './checkoutFracksatt';
 
 
 
+
 function Checkout(){
         
 
@@ -15,9 +16,11 @@ function Checkout(){
     return(
         
         <div>
+
             <Cart/>
             <Radiobutton />
             <CheckoutFracksatt/>
+
         </div>
         
     );

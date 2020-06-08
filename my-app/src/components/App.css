@@ -29,6 +29,25 @@
 .App-link {
   color: #61dafb;
 }
+.ant-drawer-body{
+  position: relative;
+  height: 300px;
+  width: 600px;
+  padding: 1px;
+
+}
+.paragraph-on-div{
+  text-decoration: overline;
+}
+.site-drawer-render-in-current-wrapper{
+  position: relative;
+  height: 100px;
+  width: 400px;
+  padding: 1px;
+  overflow: hidden;
+  background: #fafafa;
+
+}
 
 @keyframes App-logo-spin {
   from {
