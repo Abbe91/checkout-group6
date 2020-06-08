@@ -1,5 +1,5 @@
 import React, {createContext, Component} from 'react';
-import {ProviderState} from './cartProvider';
+import {ProviderState, CartItem} from './cartProvider';
 import Products, {Product} from '../Products'
 
 export interface ContextState extends ProviderState{
@@ -8,7 +8,8 @@ export interface ContextState extends ProviderState{
 }
 
 export const CartContext = createContext<ContextState>({
-    cartList: [],
+    cartItems: [],
+    
     addProductToCart: (product: Product) => {
         console.log("Error adding " + product.name + "to cart")
     },

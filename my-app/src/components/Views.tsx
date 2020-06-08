@@ -11,14 +11,14 @@ import {CartProvider} from './context/cartProvider';
 function Views() {
         console.log('hejhej')
         return (
-        <CartProvider>
+        
         <Switch>
             <Route path="/checkout" component = {Checkout} />
             <Route path="/product/:view" component = {ProductView}/>
             <Route path="/" component = {ProductList} />
 
         </Switch>
-        </CartProvider>
+        
             
             );
             

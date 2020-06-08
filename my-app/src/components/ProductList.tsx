@@ -31,7 +31,8 @@ class ProductList extends Component<{}, State> {
                {(contextData: ContextState) => {
                    return(
                        <div>
-                           {Products.map((product) => {
+                           {
+                           Products.map((product) => {
                                return(
                                    <div key = {product.id} style = {ProductListStyle}>
                                     <Link to={"/product/" + product.name}>
