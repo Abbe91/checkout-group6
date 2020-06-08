@@ -1,10 +1,56 @@
+import React, { Component }  from 'react';
 
-import React, { Component } from 'react';
-import { Form,Input,InputNumber,Button,Alert } from 'antd';
-
+import { Form,Input,InputNumber,Button, AutoComplete,Alert,Tooltip ,Select } from 'antd';
 
 const FormItem = Form.Item;
+const { TextArea } = Input;
+const { Option } = Select;
 
+const dataSource = [
+  '123', '555', '213'
+ 
+];
+
+function onSelect(value:string) {
+  console.log('onSelect', value);
+}
+
+export class Complete extends React.Component {
+  state = {
+    dataSource: [],
+  }
+
+  handleSearch = (value:string) => {
+    this.setState({
+      dataSource: !value ? [] : [
+        value,
+        value + value,
+        value + value + value,
+      ],
+    });
+  }
+
+
+
+  render() {
+    const { dataSource } = this.state;
+    return (
+      <AutoComplete
+        dataSource={dataSource}
+        style={{ width: 200 }}
+        onSelect={onSelect}
+        onSearch={this.handleSearch}
+      >
+        <TextArea
+          placeholder="input here"
+          className="custom"
+          style={{ height: 50 }}
+          
+        />
+      </AutoComplete>
+    );
+  }
+}
 
 interface Props {
  
@@ -13,64 +59,116 @@ interface State {
  
   
 }
- 
+// const Demo = () => {
+  const onFinish = (values:any) => {
+    console.log('Success:', values);
+    alert("Success")
+  };
+
+  const onFinishFailed = (errorInfo:any) => {
+    console.log('Failed:', errorInfo);
+    alert("Failed")
+  };
 class PayPalForm extends Component<Props, State> {
     oncheckChange: any;
     constructor(props: Props) {
         super(props);
         this.state = {
            
-            
+          dataSource: [],
              radio1: "72"
         };
-       
- 
+        
+      
     }
+    handleSearch = (value:Props) => {
+      this.setState({
+        dataSource: !value ? [] : [
+          this.state ={
+            value: value
+         
+          },
+          
+        ],
+      });
+    }
+    
     render() {
-        this.oncheckChange = (e:any) => {
-            console.log(e.target.checked);
-            
-        }
+  
         return (
          
-                <Form  labelCol={{ span: 5 }}
-                wrapperCol={{ span: 14 }}
-                layout="horizontal" >
-                   
-                <FormItem name={['Card', 'name']} label="Name Card" rules={[{ required: true }]} >
-                
-                      <Input placeholder="Card Name"/ >
-                    </FormItem>
-                    <FormItem name={['Card', 'number']} label="InputNumber" rules={[{type: 'number',max:999999999999 ,required: true }]} >
-                      <InputNumber placeholder="card Number" style={{width:400}} />
-                    </FormItem>
-                    <FormItem name={['Cvc', 'number']} label="CVC" rules={[{required: true, type: 'number',min: 0, max: 999 }]}>
-                      <InputNumber placeholder="CVC" />
-                    </FormItem>
-                    <h1>expiry date</h1>
-                    <FormItem name={['Type', 'Month']} label="InputNumber" rules={[{required: true, type: 'number',min: 1, max: 12 }]}>
-                      <InputNumber placeholder="month"/>
-                    </FormItem>
-                    <FormItem name={['Type', 'Year']} label="year" rules={[{required: true, type: 'number',min: 2020, max: 2222 }]}>
-                      <InputNumber  placeholder="year"/>
-                    </FormItem>
-                    <FormItem wrapperCol={{ }}>
-                      <Button type="primary" htmlType="submit"  >
-                     
-                     
-                        Submit
-                      </Button>
-                      <Alert
-   message="Success Tips"
-   description="Detailed description and advice about successful copywriting."
-   type="success"
-   showIcon
- />
-                </FormItem>
+        <Form name="complex-form"
+          onFinish={onFinish} 
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+          onFinishFailed={onFinishFailed}
+          >
+          <FormItem label="Username">
+            <FormItem
+                name="username"
+                noStyle
+                rules={[{ required: true, message: 'Username is required' }]}>
+                  <Input style={{ width: 160 }} placeholder="Please input" />
+            </FormItem>
+            <FormItem label="Password">
+            <FormItem
+                  name="password"
+                  noStyle
+                  rules={[{ required: true, message: 'Please input your password!' }]}>
+                  <Input.Password style={{ width: 160 }} placeholder="Please input password"/>
+            </FormItem>
+            </FormItem>
+            <Tooltip title="Useful information">
+              <a href="#API" style={{ margin: '0 8px' }}>
+                Need Help?
+              </a>
+            </Tooltip>
+            </FormItem>
+            <FormItem label="Address">
+               <Input.Group compact>
+          <FormItem
+            name={['address', 'province']}
+            noStyle
+            rules={[{ required: true, message: 'Province is required' }]}
+          >
+            <Select placeholder="Select province">
+              <Option value="Göteborg">Göteborg</Option>
+              <Option value="Stockholm">Stockholm</Option>
+              <Option value="Malmö">Malmö</Option>
+            </Select>
+          </FormItem>
+          <FormItem
+            name={['address', 'street']}
+            noStyle
+            rules={[{ required: true, message: 'Street is required' }]}
+          >
+            <Input style={{ width: '50%' }} placeholder="Input street" />
+          </FormItem>
+        </Input.Group>
+        </FormItem>
+        
+        <FormItem name={['Type', 'Month']} label="month" rules={[{required: true, type: 'number',min: 1, max: 12 }]}>
+          <InputNumber placeholder="month"/>
+        </FormItem>
+
+        <FormItem name={['Type', 'year']} label="year" rules={[{required: true, type: 'number',min: 2020, max: 2024 }]}>
+          <InputNumber placeholder="year"/>
+        </FormItem>
+        
+
+
+      <FormItem label=" " colon={false}>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </FormItem>
+  
                 </Form>
+    
             
         );
     }
-}
- 
-export default PayPalForm;
+  }
+  
+
+ export default PayPalForm ;
