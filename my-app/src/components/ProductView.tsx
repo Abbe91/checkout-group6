@@ -10,6 +10,7 @@ import { RouteProps } from 'react-router';
 
 
 
+
 export interface State {
     location: any
     pathname: any
@@ -18,6 +19,7 @@ interface Props {
     location: any
     pathname: any
 }
+
 
 export class ProductView extends React.Component<Props & RouteProps, State>{
 
@@ -39,6 +41,7 @@ export class ProductView extends React.Component<Props & RouteProps, State>{
             return product.name === newString;
         });  
             return(
+           
                 <CartConsumer>
                     {(contextData: ContextState) =>{
                         return(
@@ -47,9 +50,11 @@ export class ProductView extends React.Component<Props & RouteProps, State>{
                             <h1>{productToDisplay[0].name} </h1>
                             <h1>{productToDisplay[0].description} </h1>
                             <h1>{productToDisplay[0].price} </h1> 
+                           
                             <Button onClick={() => contextData.addProductToCart(productToDisplay[0])} type="primary" icon={<PlusOutlined />}>
                                                 Add to cart
                                                 </Button>
+                                               
                                                 <Button onClick={() => contextData.removeProductFromCart(productToDisplay[0])} type="primary" icon={<PlusOutlined />}>
                                                 Remove From Cart
                                                 </Button>
@@ -57,6 +62,7 @@ export class ProductView extends React.Component<Props & RouteProps, State>{
                         )
                     }}
                 </CartConsumer>
+               
             )
         }
 }
