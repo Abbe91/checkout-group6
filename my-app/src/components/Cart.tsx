@@ -1,12 +1,11 @@
-import React, {createContext, Component} from 'react';
+import React, { Component} from 'react';
 import {CartConsumer, ContextState} from './context/cartContext'; 
 import ProductName from './ProductName';
 import ProductImage from './ProductImage';
-import { Product } from './Products'
 import { Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import {ProviderState} from './context/cartProvider';
+
 
 export interface State {
     
@@ -15,9 +14,7 @@ export interface State {
 
 export class Cart extends Component<{}, State>{
 
-        constructor(props: {}){
-            super(props)
-        }
+      
         render(){
             return(
                 <CartConsumer>

@@ -4,12 +4,16 @@ import FormSwish from './SwishForm';
 import PayPalForm from './PayPalForm';
 import { Radio, Input } from 'antd';
 
+interface Props {
+ target: any
+}
+
 class Radiobutton extends React.Component {
   state = {
     value: 1,
   };
 
-  onChange = (e:any) => {
+  onChange = (e:Props) => {
     console.log('radio checked', e.target.value);
     this.setState({
       value: e.target.value,

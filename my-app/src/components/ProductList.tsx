@@ -1,19 +1,18 @@
 //Använd context & state för cart
-import React, { CSSProperties, createContext, Component } from 'react';
+import React, { CSSProperties, Component } from 'react';
 import ProductName from './ProductName';
 import ProductImage from './ProductImage';
-import { withRouter } from 'react-router-dom';
-import { Product } from './Products'
 import { Button } from 'antd';
-import { PlusOutlined,QuestionCircleOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import Products from './Products';
-import Item from 'antd/lib/list/Item';
-import { Form, message,notification,Avatar } from 'antd';
+import { Form, message,notification } from 'antd';
 import {CartConsumer, ContextState} from './context/cartContext'; 
 
 
+export interface Props{
 
+}
 
 
 export interface State {
@@ -34,7 +33,7 @@ const close = () => {
     
     const btn  = (
         <div>  
-             <Form 
+            <Form 
                 name="basic" 
                 onClick={close}>
                 <Button type="primary" size="small" onClick={() => notification.close(key)}>
@@ -44,10 +43,10 @@ const close = () => {
             <Form 
                 name="basic" 
                 onClick={goToCart}>
-          <Button type="primary" size="small" onClick={() => notification.close(key)}>
-          Go to Cart
-        </Button>
-        </Form>
+                <Button type="primary" size="small" onClick={() => notification.close(key)}>
+                Go to Cart
+                </Button>
+            </Form>
       
         </div>
     );
@@ -60,7 +59,7 @@ const close = () => {
         onClose: close,
       });
     };
-const onFinish = (values:any) => {
+const onFinish = (values:Props) => {
     console.log('Success:', values);
     const hide = message.loading('Action in progress..', 0);
   
@@ -90,7 +89,7 @@ class ProductList extends Component<{}, State> {
             onFinish={onFinish}
             onClick={openNotification}>
           
-            >
+            
             <CartConsumer>
                {(contextData: ContextState) => {
                    return(

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Form,Input,InputNumber,Button } from 'antd';
+import { Form,Input,Button } from 'antd';
 
 
 
@@ -15,12 +15,12 @@ interface State {
   
 }
 
-const onFinish = (values:any) => {
+const onFinish = (values:Props) => {
   console.log('Success:', values);
   alert("Success")
 };
 
-const onFinishFailed = (errorInfo:any) => {
+const onFinishFailed = (errorInfo:Props) => {
   console.log('Failed:', errorInfo);
   alert("Failed")
 };

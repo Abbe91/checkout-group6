@@ -1,6 +1,6 @@
 import React, { Component }  from 'react';
 
-import { Form,Input,InputNumber,Button, AutoComplete,Alert,Tooltip ,Select } from 'antd';
+import { Form,Input,InputNumber,Button, AutoComplete,Tooltip ,Select } from 'antd';
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -60,12 +60,12 @@ interface State {
   
 }
 // const Demo = () => {
-  const onFinish = (values:any) => {
+  const onFinish = (values:Props) => {
     console.log('Success:', values);
     alert("Success")
   };
 
-  const onFinishFailed = (errorInfo:any) => {
+  const onFinishFailed = (errorInfo:Props) => {
     console.log('Failed:', errorInfo);
     alert("Failed")
   };

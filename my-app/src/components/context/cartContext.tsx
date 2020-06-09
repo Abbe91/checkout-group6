@@ -1,6 +1,6 @@
-import React, {createContext, Component} from 'react';
+import  {createContext, } from 'react';
 import {ProviderState} from './cartProvider';
-import Products, {Product} from '../Products'
+import {Product} from '../Products'
 
 export interface ContextState extends ProviderState{
     addProductToCart: (product: Product) => void,
