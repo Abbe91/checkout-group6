@@ -1,33 +1,73 @@
-import React from 'react';
-import { Input, Col } from 'antd';
-import { DatePicker } from 'antd';
+import React, { Component } from 'react';
+
+import { Form,Input,InputNumber,Button } from 'antd';
 
 
 
+const FormItem = Form.Item;
 
 
-
-class FormSwish extends  React.Component {
-
-  state ={
-    value: ""
-  }
+interface Props {
+ 
+}
+interface State {
+ 
   
+}
+
+const onFinish = (values:any) => {
+  console.log('Success:', values);
+  alert("Success")
+};
+
+const onFinishFailed = (errorInfo:any) => {
+  console.log('Failed:', errorInfo);
+  alert("Failed")
+};
+
+class FormSwish extends  Component<Props,State> {
+  oncheckChange: any;
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+           
+            
+             radio1: "72"
+        };
+       
+ 
+    }
+
 
   render() {
-    return (
-      <div>
-        <h1>The phone you are going to swish from</h1>
-        <Col span={5}>
-          <Input
-          type="text"
-          placeholder="Name on Card" 
-     />
-        </Col>
-
-      </div>
-    );
+    this.oncheckChange = (e:any) => {
+      console.log(e.target.checked);
+      
   }
+    return (
+   
+      <Form  
+      name="basic" 
+                  labelCol={{ span: 5 }}
+                  wrapperCol={{ span: 20 }}
+                  layout="horizontal"
+                  onFinish={onFinish}
+                   onFinishFailed={onFinishFailed}
+                  >
+         <FormItem name={['Phone', 'number']} label="Phone Number" rules={[{ min:13, max:13 ,required: true }]} >
+              <Input type="number" pattern="\d*" placeholder="Phone Number ex: 0046 **********"   style={{width:400}} />
+          </FormItem>
+          
+          <FormItem >
+              <Button type="primary" htmlType="submit">
+              Send
+              </Button> 
+          </FormItem>
+      
+      </Form>
+  
+);
+}
 }
 
 

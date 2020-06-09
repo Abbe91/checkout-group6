@@ -1,6 +1,7 @@
 import React from 'react'
-import Form from './CardForm';
+import CreditCardForm from './CardForm';
 import FormSwish from './SwishForm';
+import PayPalForm from './PayPalForm';
 import { Radio, Input } from 'antd';
 
 class Radiobutton extends React.Component {
@@ -25,7 +26,7 @@ class Radiobutton extends React.Component {
       <Radio.Group onChange={this.onChange} value={value}>
         <Radio style={radioStyle} value={1}>
           Pay with Card 
-          {value === 1 ? <Form />  : null}
+          {value === 1 ? <CreditCardForm />  : null}
         </Radio>
         <Radio style={radioStyle} value={2}>
           Pay with Swish
@@ -33,6 +34,7 @@ class Radiobutton extends React.Component {
         </Radio>
         <Radio style={radioStyle} value={3}>
           Pay with paypal
+          {value === 3 ? <PayPalForm /> : null}
         </Radio>
         <Radio style={radioStyle} value={4}>
           More...

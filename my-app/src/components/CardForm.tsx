@@ -1,159 +1,151 @@
-import React from 'react';
-import { Input, Col } from 'antd';
-// import { UserOutlined } from '@ant-design/icons';
-import { DatePicker } from 'antd';
+import React, { Component }  from 'react';
 
+import { Form,Input,InputNumber,Button, AutoComplete,Alert  } from 'antd';
 
+const FormItem = Form.Item;
+const { TextArea } = Input;
 
+const dataSource = [
+  '123', '555', '213'
+ 
+];
 
-// class App extends React.Component {
-//   state = { form: { message: "" } };
+function onSelect(value:string) {
+  console.log('onSelect', value);
+}
 
-//   handleChangeInput = event => {
-//     const { value, maxLength } = event.target;
-//     const message = value.slice(0, maxLength);
-
-//     this.setState({
-//       form: {
-//         message
-//       }
-//     });
-//   };
-
-//   render() {
-//     return (
-//       <input
-//         onChange={this.handleChangeInput}
-//         value={this.state.form.message}
-//         type="text"
-//         className="phone validate"
-//         name="phone"
-//         maxLength="11"
-//       />
-//     );
-//   }
-// }
-
-class Form extends  React.Component {
-
-  state ={
-    value: ""
+export class Complete extends React.Component {
+  state = {
+    dataSource: [],
   }
-  
+
+  handleSearch = (value:string) => {
+    this.setState({
+      dataSource: !value ? [] : [
+        value,
+        value + value,
+        value + value + value,
+      ],
+    });
+  }
+
+
 
   render() {
+    const { dataSource } = this.state;
     return (
-      <div>
-        <h1>Name on Card</h1>
-        <Col span={5}>
-          <Input
-          type="text"
-          placeholder="Name on Card" 
-     />
-        </Col>
-
-        <h1>Number on card</h1>
-        <Col span={5}>
-          <Input placeholder="Number on card" 
-          type="number" 
+      <AutoComplete
+        dataSource={dataSource}
+        style={{ width: 200 }}
+        onSelect={onSelect}
+        onSearch={this.handleSearch}
+      >
+        <TextArea
+          placeholder="input here"
+          className="custom"
+          style={{ height: 50 }}
           
-          onChange={(event) => {
-            if (isNaN(Number(event.target.value))) {
-              return;
-            } else {
-              this.setState({ value: event.target.value });
-            }
-          }}
-        //Det här gör en kopiera med CVC
-          value={this.state.value}
-          />
-          
-          
-        </Col>
-
-        <h1>CVC</h1>
-        <Col span={1}>
-          <Input placeholder="123"
-               onChange={(event) => {
-                if (isNaN(Number(event.target.value))) {
-                  return;
-                } else {
-                  this.setState({ value: event.target.value });
-                }
-              }}
-              //  maxLength= "3"
-              // placeholder="Enter Zip Code"
-              // value={this.state.value}
-              />
-          
-        </Col>
-        <h1>expiry date</h1>
-      <DatePicker picker="month" />
-
-      <DatePicker picker="year" />
-      </div>
+        />
+      </AutoComplete>
     );
   }
 }
 
+interface Props {
+ 
+}
+interface State {
+ 
+  
+}
+// const Demo = () => {
+  const onFinish = (values:any) => {
+    console.log('Success:', values);
+    alert("Success")
+  };
 
-export default Form;
-
-// interface Props{
-//   maxLength: number
-//   placeholder: string
-// }
-
-// function CardForm(props: Props){
-//   return(
-    
-//       <div>
-//         <h1>Name on Card</h1>
-//         <Col span={5}>
-//           <Input
-//           type="text"
-//           placeholder="Name on Card" 
-//      />
-//         </Col>
-
-//         <h1>Number on card</h1>
-//         <Col span={5}>
-//           <Input placeholder="Number on card" 
-//           type="number12" 
-//           onChange={(event) => {
-//             if (isNaN(Number(event.target.value))) {
-//               return;
-//             } else {
-//               this.setState({ value: event.target.value });
-//             }
-//           }}
+  const onFinishFailed = (errorInfo:any) => {
+    console.log('Failed:', errorInfo);
+    alert("Failed")
+  };
+class CreditCardForm extends Component<Props, State> {
+    oncheckChange: any;
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+           
+          dataSource: [],
+             radio1: "72"
+        };
         
-//           value={this.state.value}/>
+      
+    }
+    handleSearch = (value:Props) => {
+      this.setState({
+        dataSource: !value ? [] : [
+          this.state ={
+            value: value
+         
+          },
           
-          
-//         </Col>
+        ],
+      });
+    }
+    
+    render() {
+      
+       
+       
 
-//         <h1>CVC</h1>
-//         <Col span={1}>
-//           <Input placeholder="123"
-//                onChange={(event) => {
-//                 if (isNaN(Number(event.target.value))) {
-//                   return;
-//                 } else {
-//                   this.setState({ value: event.target.value });
-//                 }
-//               }}
-//               // maxLength="5"
-//               // placeholder="Enter Zip Code"
-//               value={this.state.value}/>
-          
-//         </Col>
-//         <h1>expiry date</h1>
-//       <DatePicker picker="month" />
+       
+        return (
+         
+                <Form 
+                  name="basic" 
+                  labelCol={{ span: 5 }}
+                  wrapperCol={{ span: 20 }}
+                  layout="horizontal"
+                  onFinish={onFinish}
+                   onFinishFailed={onFinishFailed}
+                  >
+                  <FormItem name={['Your', 'Email']}  label="your Email" rules={[{ required: true }]} >
+                  <AutoComplete  placeholder="Email" />
+                  </FormItem>
 
-//       <DatePicker picker="year" />
-//       </div>
-//     );
-          
-// }
-// export default CardForm;
+                  <FormItem name={['Your', 'name']}  label="Name Card" rules={[{ required: true }]} >
+                    <AutoComplete  placeholder="Your card Name" />
+                      
+                  </FormItem>
+
+                  <FormItem name={['Card', 'number']} label="Card Number" rules={[{ min:12 ,required: true }]} >
+                      <Input type="number" pattern="\d*" placeholder="Card Number"   style={{width:400}} />
+                    </FormItem>
+
+                    <FormItem name={['Cvc', 'number']} label="CVC" rules={[{required: true,min: 3, max: 3 }]}>
+                    <AutoComplete dataSource={dataSource} placeholder="Your card Name" />
+                    </FormItem>
+
+                    <h1>expiry date</h1>
+                    <FormItem name={['Type', 'Month']} label="month" rules={[{required: true, type: 'number',min: 1, max: 12 }]}>
+                      <InputNumber placeholder="month"/>
+                    </FormItem>
+
+                    <FormItem name={['Type', 'year']} label="year" rules={[{required: true, type: 'number',min: 2020, max: 2024 }]}>
+                      <InputNumber placeholder="year"/>
+                    </FormItem>
+                    <FormItem >
+                      <Button type="primary" htmlType="submit">
+                      Send
+  
+                      </Button> 
+                     </FormItem>
+  
+                </Form>
+    
+            
+        );
+    }
+  }
+  
+
+ export default CreditCardForm ;
