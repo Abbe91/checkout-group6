@@ -67,6 +67,7 @@ interface State {
   const onFinishFailed = (errorInfo:any) => {
     console.log('Failed:', errorInfo);
     alert("Failed")
+    
   };
 class CreditCardForm extends Component<Props, State> {
     oncheckChange: any;
