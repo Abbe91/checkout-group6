@@ -1,10 +1,8 @@
-import React, { CSSProperties, Component } from 'react';
+import React from 'react';
 import {CartConsumer, ContextState} from './context/cartContext'; 
-import {withRouter} from 'react-router-dom'
 import Products from './Products'
 import { PlusOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import {useLocation} from 'react-router-dom';
 import { RouteProps } from 'react-router';
 
 
@@ -22,13 +20,6 @@ interface Props {
 
 
 export class ProductView extends React.Component<Props & RouteProps, State>{
-
-        constructor(props: Props){
-            super(props)
-           
-        }
-
-     
 
         render(){
             
@@ -67,11 +58,6 @@ export class ProductView extends React.Component<Props & RouteProps, State>{
         }
 }
 
-let ButtonStyle: CSSProperties = {
-    margin: 0,
-    position: 'absolute',
-    marginLeft: '40px'
 
-}
 
 export default ProductView

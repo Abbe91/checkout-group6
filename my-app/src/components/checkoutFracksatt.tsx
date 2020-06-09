@@ -1,11 +1,10 @@
-import React, { Component, MouseEvent,useState } from 'react';
-import { Form, Input, Radio, Button, } from 'antd';
-import { RadioChangeEvent } from 'antd/lib/radio';
-import { Typography, Space, Card } from 'antd';
+import React, { Component, MouseEvent } from 'react';
+
+import { Typography, Space, Card ,Button} from 'antd';
 import { Meta } from 'antd/lib/list/Item';
-import ProductImage from './ProductImage';
+
 const { Title } = Typography;
-const { Text, Link } = Typography;
+const { Text } = Typography;
 
 
 interface Frackt {
@@ -56,20 +55,7 @@ class CheckoutFracksatt extends Component<Props, State> {
         };
     }
 
-/*     handleInput = (e: any) => {
-        console.log('Radio button clicked ', e.target.value);
-        this.setState({
-            value: e.target.value,
 
-        });
-        const foundFract = fracktCheck.find((frackt) => {
-            return frackt.fracktName == e.target.value;
-        })
-        if (foundFract) {
-            this.oncheckChange(foundFract);
-        }
-
-    }; */
     handleClick(event: MouseEvent) {
         event.preventDefault();
         alert(event.currentTarget.tagName); // alerts BUTTON
@@ -77,7 +63,7 @@ class CheckoutFracksatt extends Component<Props, State> {
 
 
     render() {
-        const { value } = this.state;
+     
         return (
             <div>
                 <br />
