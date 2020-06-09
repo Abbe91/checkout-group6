@@ -1,10 +1,16 @@
-import React, { Component } from 'react';
-import { Form, Input, Radio, } from 'antd';
+import React, { Component, MouseEvent,useState } from 'react';
+import { Form, Input, Radio, Button, } from 'antd';
+import { RadioChangeEvent } from 'antd/lib/radio';
+import { Typography, Space, Card } from 'antd';
+import { Meta } from 'antd/lib/list/Item';
+import ProductImage from './ProductImage';
+const { Title } = Typography;
+const { Text, Link } = Typography;
 
-const FormItem = Form.Item
 
 interface Frackt {
-    fracktName: string,
+    fracktId: number,
+    fracktName: string,  
     fracktSpeed: number,
     fracktCost: number
 }
@@ -12,62 +18,90 @@ interface Props {
 
 }
 interface State {
-    check1:boolean,
-    check2:boolean,
-     radio1: string
+    check1: boolean,
+    check2: boolean,
+    value: number
 }
 
-const fracktCheck: Frackt[] = [
+let fracktCheck: Frackt[] = [
     {
-        fracktName: 'Postnord',
-        fracktSpeed: 72,
+        fracktId: 1,
+        fracktName: 'Postnord',        
+        fracktSpeed: 3,
         fracktCost: 50
     },
     {
-        fracktName: 'Postnord1',
-        fracktSpeed: 48,
-        fracktCost: 50
+        fracktId: 2,
+        fracktName: 'Parcel Select',
+        fracktSpeed: 2,
+        fracktCost: 100
     },
     {
-        fracktName: 'Postnord2',
-        fracktSpeed: 24,
-        fracktCost: 50
+        fracktId: 3,
+        fracktName: 'Express Post',
+        fracktSpeed: 1,
+        fracktCost: 150
     },
 ];
 
+type shipperType = 'Postnord' | 'Parcel Select' | 'Express Post';
 class CheckoutFracksatt extends Component<Props, State> {
-    oncheckChange: any;
+
     constructor(props: Props) {
         super(props);
         this.state = {
-            check1:true,
-            check2:false,
-             radio1: "72"
+            check1: true,
+            check2: false,
+            value: 1,
         };
-       
-
     }
-    render() {
-        this.oncheckChange = (e:any) => {
-            console.log(e.target.checked);
-            
+
+/*     handleInput = (e: any) => {
+        console.log('Radio button clicked ', e.target.value);
+        this.setState({
+            value: e.target.value,
+
+        });
+        const foundFract = fracktCheck.find((frackt) => {
+            return frackt.fracktName == e.target.value;
+        })
+        if (foundFract) {
+            this.oncheckChange(foundFract);
         }
+
+    }; */
+    handleClick(event: MouseEvent) {
+        event.preventDefault();
+        alert(event.currentTarget.tagName); // alerts BUTTON
+    }
+
+
+    render() {
+        const { value } = this.state;
         return (
             <div>
-                <Form labelCol={{ span: 4 }}
-        wrapperCol={{ span: 14 }}
-        layout="vertical" >
-                    <FormItem >
-                        <Radio.Group onChange={this.oncheckChange} >
-                            <Radio.Button name="radioFrackt" checked={this.state.check2} value="horizontal">72 Hour</Radio.Button>
-                            <Radio.Button name="radioFrackt" value="vertical">48 Hour</Radio.Button>
-                            <Radio.Button name="radioFrackt" value="inline">24 Hour</Radio.Button>
-                        </Radio.Group>
-                    </FormItem>
-                </Form>
+                <br />
+                <Title level={4}>Freight Options</Title>
+                {fracktCheck.map((shipping) => {
+                    return (
+                        <Space direction="horizontal">
+                            <Card key={shipping.fracktId} title={shipping.fracktName}
+                                style={{ width: 160, marginRight:'40px', borderRadius:'15px' }} actions={[]} >
+                                <Text type="warning">Time for delivery:{shipping.fracktSpeed * 24} hours</Text><br /><br />
+                                <Text type="warning">Shipping date:</Text>
+                                <Meta description={new Date(new Date().setDate(new Date().getDate() + shipping.fracktSpeed)).toISOString().substring(0, 10)} />
+                                <br />
+                                <Button value={shipping.fracktCost} type="primary" onClick={this.handleClick} >Add Shipping</Button>
+                            </Card>
+                        </Space>
+                    )
+                })}
             </div>
+
+
         );
     }
+
 }
 
 export default CheckoutFracksatt;
