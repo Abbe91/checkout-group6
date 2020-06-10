@@ -12,12 +12,14 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>   
+      <CartProvider>
           <Header />
         <Layout className="layout">           
             <Layout>
               <Content />              
             </Layout>
           </Layout>  
+          </CartProvider>
           <Footer />   
       </BrowserRouter>
 
