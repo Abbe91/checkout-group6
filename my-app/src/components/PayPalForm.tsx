@@ -6,10 +6,6 @@ const FormItem = Form.Item;
 const { TextArea } = Input;
 const { Option } = Select;
 
-const dataSource = [
-  '123', '555', '213'
- 
-];
 
 function onSelect(value:string) {
   console.log('onSelect', value);
