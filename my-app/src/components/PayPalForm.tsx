@@ -106,9 +106,6 @@ class PayPalForm extends Component<Props, State> {
             <AutoComplete  placeholder="Email" />
           </FormItem>
 
-          <FormItem name={['Your', 'name']}  label="Name Card" rules={[{ required: true }]} >
-            <AutoComplete  placeholder="Your card Name" />
-          </FormItem>
           <FormItem name="password" label="Password" rules={[{ required: true, message: 'Please input your password!' }]}>
             <Input.Password  placeholder="Please input password"/>
           </FormItem>
