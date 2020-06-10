@@ -14,7 +14,12 @@ export interface State {
 
 
 export class Cart extends Component<{}, State>{
-    
+
+
+
+    constructor(props: {}){
+        super(props)
+    }
       
         render(){
             return(
