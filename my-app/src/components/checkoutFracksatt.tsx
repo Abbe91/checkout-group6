@@ -88,7 +88,7 @@ class CheckoutFracksatt extends Component<Props, State> {
                                 <br />
 
                            
-                              <Button onClick={()=>this.handleClick(shipping)}>Add Shipping</Button>
+                              <Button onClick={()=>this.handleClick()}>Add Shipping</Button>
                      {/*          <Button onClick={()=>this.handleClick(shipping.fracktCost)}>Add Shipping</Button> */}
                             </Card>
                         </Space>
