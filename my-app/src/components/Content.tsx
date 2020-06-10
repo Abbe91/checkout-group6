@@ -13,14 +13,11 @@ const { Text } = Typography;
 
 function content() {
     return (
-        <Content style={{ backgroundColor: "gray" ,borderRadius :'15px'}}>
-            <Text style={{color:"white"}}>We have been in the business for quite a while now,
-            and it that time we have not only managed to make close relationships with numerous suppliers all over the world,
-            but also to recognize what people need. This means that we are always able to offer all the latest phones,
-            great prices, reliable service, fast delivery and premium customer support.</Text>
+        <Content >
+            <Text type="warning"></Text>
 
 
-            <div style={{ backgroundColor: "white" , borderRadius :'15px'}}>
+            <div style={{ borderRadius :'15px'}}>
 
 
                 <Views />

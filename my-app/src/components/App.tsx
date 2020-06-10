@@ -5,23 +5,22 @@ import Header from './Header';
 import Footer from './Footer';
 import Content from './Content';
 import { BrowserRouter } from 'react-router-dom';
-
+import {CartProvider} from './context/cartProvider';
 
 
 function App() {
   return (
     <div className="App">
-
-      <BrowserRouter>
-   
-        <Layout className="layout">
-           
+      <BrowserRouter>   
+      <CartProvider>
+          <Header />
+        <Layout className="layout">           
             <Layout>
-            <Header />
               <Content />              
-              <Footer />
             </Layout>
-          </Layout>     
+          </Layout>  
+          </CartProvider>
+          <Footer />   
       </BrowserRouter>
 
     </div>

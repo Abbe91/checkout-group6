@@ -14,7 +14,8 @@ let Products: Product[] = [
         "name": "iPhone X",
         "description": "Last years phone from Apple with a beautiful all display front.",
         "img": "iPhoneX.png",
-        "price": 11495
+        "price": 11495,
+        
     },{
         "id" : 1,
         "name": "One Plus 5",

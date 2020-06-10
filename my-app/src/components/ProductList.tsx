@@ -18,56 +18,14 @@ export interface Props{
 export interface State {
     
 }
-const close = () => {
+const key = 'updatable';
 
-    console.log(
-      'Notification was closed. Either the close button was clicked or duration time elapsed.',
-    );
-  };
-  const goToCart = () => {
-    console.log("you should write a code to be done");
-
-  };
-  const openNotification = () => {
-    const key = `open${Date.now()}`;
-    
-    const btn  = (
-        <div>  
-            <Form 
-                name="basic" 
-                onClick={close}>
-                <Button type="primary" size="small" onClick={() => notification.close(key)}>
-                    Confirm
-                </Button>
-            </Form>
-            <Form 
-                name="basic" 
-                onClick={goToCart}>
-                <Button type="primary" size="small" onClick={() => notification.close(key)}>
-                Go to Cart
-                </Button>
-            </Form>
-      
-        </div>
-    );
-    notification.open({
-        message: 'Thanks for your choose',
-        description:
-          'Your products are on your cart if you want to Continue shopping click on to confirm',
-        btn,
-        key,
-        onClose: close,
-      });
-    };
 const onFinish = (values:Props) => {
     console.log('Success:', values);
-    const hide = message.loading('Action in progress..', 0);
   
-    setTimeout(hide, 2500);
-
+    message.success({ content: 'Added to cart!', key, duration: 2 });
   
-       
-        }
+};
       
   
 
@@ -87,14 +45,15 @@ class ProductList extends Component<{}, State> {
             wrapperCol={{ span: 20 }}
             layout="horizontal"
             onFinish={onFinish}
-            onClick={openNotification}>
+            >
           
             
             <CartConsumer>
                {(contextData: ContextState) => {
                    return(
                        <div>
-                           {Products.map((product) => {
+                           {
+                           Products.map((product) => {
                                return(
                                    <div key = {product.id} style = {ProductListStyle}>
                                     <Link to={"/product/" + product.name}>
@@ -130,7 +89,7 @@ class ProductList extends Component<{}, State> {
 
         
         
-        let ButtonStyle: CSSProperties = {
+       export let ButtonStyle: CSSProperties = {
             margin: 0,
             position: 'absolute',
             marginLeft: '40px',
@@ -139,7 +98,7 @@ class ProductList extends Component<{}, State> {
         }
      
      
-        let ProductListStyle: CSSProperties = {
+       export let ProductListStyle: CSSProperties = {
             display: 'inline-block',
             margin: 10,
             height: 400,

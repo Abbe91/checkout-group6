@@ -1,9 +1,14 @@
-import React, { Component} from 'react'
+import React, {createContext, Component} from 'react'
 import {CartContext} from './cartContext'
 import {Product} from '../Products'
 
+export interface CartItem {
+    product: Product
+    quantity: number
+}
 export interface ProviderState{
-    cartList: Product[]
+    cartItems: CartItem[]
+    
 }
 
 export class CartProvider extends Component<{}, ProviderState>{
@@ -11,23 +16,42 @@ export class CartProvider extends Component<{}, ProviderState>{
     constructor(props: {}) {
         super(props)
         this.state = {
-            cartList: []
+            cartItems: []
+            
         }
     }
     
     addProductToCart = (product: Product) => {
-        const clonedCart = Object.assign([], this.state.cartList)
-        clonedCart.push(product)
-        this.setState({cartList: clonedCart}, ()=> {console.log(this.state)})
+        const clonedCart:CartItem[] = Object.assign([], this.state.cartItems)
+        
+        const foundProductIndex = this.state.cartItems.findIndex((productToFind: CartItem) => {
+            return product.id === productToFind.product.id
+        })
+        if (foundProductIndex == -1){
+            clonedCart.push({product: product, quantity: 1})
+        }
+        else {
+            clonedCart[foundProductIndex].quantity++
+        }
+        this.setState({cartItems: clonedCart},  ()=> {console.log(this.state.cartItems)})
+        
     }
 
     removeProductFromCart = (product: Product) =>{
-        const clonedCartTwo = Object.assign([], this.state.cartList)
-        const index = clonedCartTwo.indexOf(product);
-        if (index > -1){
-            clonedCartTwo.splice(index, 1);
+        const clonedCart:CartItem[] = Object.assign([], this.state.cartItems)
+        const index = clonedCart.findIndex((productToFind: CartItem) => {
+            return product.id === productToFind.product.id
+        })
+        
+        if (index != -1) {
+            if(clonedCart[index].quantity > 1){
+                clonedCart[index].quantity--
+            }
+            else{
+                clonedCart.splice(index, 1);
+            }
         }
-        this.setState({cartList: clonedCartTwo}, ()=> {console.log(this.state)})
+        this.setState({cartItems: clonedCart}, ()=> {console.log(this.state)})
     }
 
     render(){
