@@ -51,7 +51,7 @@ class FormSwish extends  Component<Props,State> {
       <Form name="basic" labelCol={{ span: 5 }} wrapperCol={{ span: 20 }} layout="horizontal" onFinish={onFinish} onFinishFailed={onFinishFailed}>
           <AddressForm />
           <h2>Your Swish number</h2>
-         <FormItem name={['frmPhoneNumA', 'frmPhoneNumA']} label="Phone Number" rules={[{ min:10, max:10 ,required: true }]} >
+         <FormItem name={['frmPhoneNumA', 'frmPhoneNumA']} label="Phone Number" rules={[{ min:10, max:13 ,required: true }]} >
               <Input name="frmPhoneNumA" type="number" pattern="\d*" placeholder="Phone Number ex: 0046 **********"   style={{width:400}} />
           </FormItem>
           
