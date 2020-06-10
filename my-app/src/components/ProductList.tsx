@@ -51,7 +51,7 @@ class ProductList extends Component<{}, State> {
             <CartConsumer>
                {(contextData: ContextState) => {
                    return(
-                       <div>
+                       <div style={{ textAlign: 'center' }}>
                            {
                            Products.map((product) => {
                                return(
@@ -90,9 +90,7 @@ class ProductList extends Component<{}, State> {
         
         
        export let ButtonStyle: CSSProperties = {
-            margin: 0,
-            position: 'absolute',
-            marginLeft: '40px',
+
             borderRadius: 15
      
         }
