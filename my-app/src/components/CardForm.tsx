@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 
-import { Form,Input,InputNumber,Button, AutoComplete,Alert  } from 'antd';
+import { Form,Input,InputNumber,Button, AutoComplete  } from 'antd';
+
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -59,14 +60,18 @@ interface State {
   
 }
 // const Demo = () => {
-  const onFinish = (values:any) => {
+  const onFinish = (values:Props) => {
     console.log('Success:', values);
-    alert("Success")
+    alert("Thanks for you shoping, You are moste welcome to visit us again on future")
+    window.location.reload();
+        
+   
   };
 
-  const onFinishFailed = (errorInfo:any) => {
+  const onFinishFailed = (errorInfo:Props) => {
     console.log('Failed:', errorInfo);
-    alert("Failed")
+   
+  
   };
 class CreditCardForm extends Component<Props, State> {
     oncheckChange: any;
@@ -106,6 +111,7 @@ class CreditCardForm extends Component<Props, State> {
                   wrapperCol={{ span: 20 }}
                   layout="horizontal"
                   onFinish={onFinish}
+                 
                    onFinishFailed={onFinishFailed}
                   >
                   <FormItem name={['Your', 'Email']}  label="your Email" rules={[{ required: true }]} >

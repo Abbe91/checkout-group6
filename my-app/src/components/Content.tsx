@@ -2,8 +2,7 @@ import React from 'react';
 import './App.css';
 
 import { Layout, Typography } from 'antd';
-import Products from './Products';
-import ProductList from './ProductList';
+
 import Views from './Views'
 
 // import Form from './CardForm';

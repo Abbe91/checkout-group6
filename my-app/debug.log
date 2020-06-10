@@ -1,2 +1,7 @@
 [0604/161319.565:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
 [0604/161319.613:ERROR:exception_snapshot_win.cc(98)] thread ID 18500 not found in process
+[0608/224212.297:ERROR:file_io.cc(134)] WriteFile: Det finns inte tillräckligt med utrymme på disken. (0x70)
+[0608/224212.298:ERROR:crash_report_exception_handler.cc(111)] WriteEverything failed
+[0608/224212.298:ERROR:filesystem_win.cc(148)] DeleteFile C:\Users\wODe\AppData\Local\AVAST Software\Browser\User Data\Crashpad\reports\d3d2b2d5-3851-47b3-87dd-f700b1bfd197.dmp: Det går inte att komma åt filen eftersom denanvänds av en annan process. (0x20)
+[0610/013334.467:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
+[0610/013334.470:ERROR:exception_snapshot_win.cc(98)] thread ID 10664 not found in process

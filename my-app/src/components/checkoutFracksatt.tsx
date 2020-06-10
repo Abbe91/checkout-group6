@@ -56,20 +56,6 @@ class CheckoutFracksatt extends Component<Props, State> {
        /*  this.handleClick =this.handleClick.bind(this) */
     }
 
-/*     handleInput = (e: any) => {
-        console.log('Radio button clicked ', e.target.value);
-        this.setState({
-            value: e.target.value,
-
-        });
-        const foundFract = fracktCheck.find((frackt) => {
-            return frackt.fracktName == e.target.value;
-        })
-        if (foundFract) {
-            this.oncheckChange(foundFract);
-        }
-
-    }; */
     handleClick() {
        // event.preventDefault();
        // alert(event.currentTarget.tagName); // alerts BUTTON
