@@ -1,12 +1,11 @@
 import React, {createContext, Component} from 'react';
 import {CartConsumer, ContextState} from './context/cartContext'; 
-import ProductName from './ProductName';
 import ProductImage from './ProductImage';
-import { Product } from './Products'
+import {ProductListStyle} from './ProductList';
 import { Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import {ProviderState} from './context/cartProvider';
+
 
 export interface State {
     
@@ -29,7 +28,7 @@ export class Cart extends Component<{}, State>{
                                     contextData.cartItems.length ?
                                     contextData.cartItems.map((product) =>{
                                         return(
-                                            <div key = {product.product.id}>
+                                            <div key = {product.product.id} style = {ProductListStyle}>
                                                 <Link to={"/product/" + product.product.name}>
                                                 <div>
                                                     <ProductImage img={product.product.img}/>

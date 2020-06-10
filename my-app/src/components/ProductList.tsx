@@ -61,7 +61,7 @@ class ProductList extends Component<{}, State> {
 
         
         
-        let ButtonStyle: CSSProperties = {
+       export let ButtonStyle: CSSProperties = {
             margin: 0,
             position: 'absolute',
             marginLeft: '40px',
@@ -70,7 +70,7 @@ class ProductList extends Component<{}, State> {
         }
      
      
-        let ProductListStyle: CSSProperties = {
+       export let ProductListStyle: CSSProperties = {
             display: 'inline-block',
             margin: 10,
             height: 400,
