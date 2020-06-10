@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component, CSSProperties} from 'react';
 import {CartConsumer, ContextState} from './context/cartContext'; 
 import ProductImage from './ProductImage';
 import {ProductListStyle} from './ProductList';
@@ -26,7 +26,7 @@ export class Cart extends Component<{}, State>{
                 <CartConsumer>
                     {(contextData: ContextState) => {
                         return(
-                            <div>
+                            <div style={{ textAlign: 'center' }}>
                                 <h1>Cart</h1>
                                 {   
                                     contextData.cartItems.length ?
@@ -34,7 +34,7 @@ export class Cart extends Component<{}, State>{
                                         
                                         
                                         return(
-                                            <div key = {product.product.id} style = {ProductListStyle}>
+                                            <div key = {product.product.id} style = {ProductCartStyle}>
                                                 <Link to={"/product/" + product.product.name}>
                                                 <div>
                                                     <ProductImage img={product.product.img}/>
@@ -44,10 +44,10 @@ export class Cart extends Component<{}, State>{
                                                 <div>{product.product.name}</div>
                                                 <div>{product.quantity * product.product.price}</div>
                                                 </Link>
-                                                <Button onClick={() => contextData.addProductToCart(product.product)} type="primary" icon={<PlusOutlined />}>
+                                                <Button  style = {ButtonStyle}  onClick={() => contextData.addProductToCart(product.product)} type="primary" icon={<PlusOutlined />}>
                                                 Add to cart
                                                 </Button>
-                                                <Button onClick={() => contextData.removeProductFromCart(product.product)} type="primary" icon={<MinusOutlined />} danger>
+                                                <Button  style = {ButtonStyle}  onClick={() => contextData.removeProductFromCart(product.product)} type="primary" icon={<MinusOutlined />} danger>
                                                 Remove From Cart
                                                 </Button>
                                              </div>
@@ -68,7 +68,24 @@ export class Cart extends Component<{}, State>{
         }
     }
     
+    let ButtonStyle: CSSProperties = {
+        margin: 0, 
+        textAlign: 'center', 
+        borderRadius: 15
+    }
 
+    export let ProductCartStyle: CSSProperties = {
+        display: 'inline-block',
+        margin: 10,
+        height: 430,
+        width: 200,
+        padding: 0,
+        borderRadius: 15,
+        backgroundColor: '#FFF',
+        WebkitFilter: "drop-shadow(0px 0px 5px #555)",
+        filter: "drop-shadow(0px 0px 5px #555)",
+    };
+ 
 
 
 export default Cart;
