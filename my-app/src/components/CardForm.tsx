@@ -2,14 +2,9 @@ import React, { Component }  from 'react';
 
 import { Form,Input,InputNumber,Button, AutoComplete  } from 'antd';
 
-
+import Address from './AddressCheckOut';
 const FormItem = Form.Item;
 const { TextArea } = Input;
-
-const dataSource = [
-  '123', '555', '213'
- 
-];
 
 function onSelect(value:string) {
   console.log('onSelect', value);
@@ -110,6 +105,8 @@ class CreditCardForm extends Component<Props, State> {
                  
                    onFinishFailed={onFinishFailed}
                   >
+                  <Address />
+                  <h2>Card information</h2>
                   <FormItem name={['Your', 'Email']}  label="your Email" rules={[{ required: true }]} >
                   <AutoComplete  placeholder="Email" />
                   </FormItem>

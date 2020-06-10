@@ -9,9 +9,9 @@ class AddressForm extends Component {
    render(){ 
         return (
          
-        <Form name="complex-form">
-            <FormItem>
-            <h2>Shipping adress</h2>
+ 
+            <div>
+              <h2>Shipping adress</h2>
               <FormItem name={['Your', 'Email']}  label="your Email" rules={[{ required: true }]} >
                       <AutoComplete  placeholder="Email" />
                 </FormItem>
@@ -27,17 +27,12 @@ class AddressForm extends Component {
                   <Input name= "frmZipS" placeholder="Input street" />
                 </FormItem>
 
-              <FormItem name={['frmCityS', 'frmCityS']} label="The City" rules={[{ required: true, message: 'Street is required' }]}>
-                <Input  name="frmCityS" placeholder="Sweden" />
-              </FormItem>
-
-              <FormItem name="password" label="Password" rules={[{ required: true, message: 'Please input your password!' }]}>
-                      <Input.Password  placeholder="Please input password"/>
-              </FormItem>
+                <FormItem name={['frmCityS', 'frmCityS']} label="The City" rules={[{ required: true, message: 'Street is required' }]}>
+                  <Input  name="frmCityS" placeholder="Sweden" />
+                </FormItem>
         
-            </FormItem>
-  
-        </Form>
+              </div>
+    
     
             
         );

@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 
 import { Form,Input,InputNumber,Button, AutoComplete,Tooltip ,Select } from 'antd';
+import AddressForm from './AddressCheckOut';
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -98,73 +99,21 @@ class PayPalForm extends Component<Props, State> {
   
         return (
          
-        <Form name="complex-form"
-          onFinish={onFinish} 
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
-          onFinishFailed={onFinishFailed}
-          >
-          <FormItem label="Username">
-            <FormItem
-                name="username"
-                noStyle
-                rules={[{ required: true, message: 'Username is required' }]}>
-                  <Input style={{ width: 160 }} placeholder="Please input" />
-            </FormItem>
-            <FormItem label="Password">
-            <FormItem
-                  name="password"
-                  noStyle
-                  rules={[{ required: true, message: 'Please input your password!' }]}>
-                  <Input.Password style={{ width: 160 }} placeholder="Please input password"/>
-            </FormItem>
-            </FormItem>
-            <Tooltip title="Useful information">
-              <a href="#API" style={{ margin: '0 8px' }}>
-                Need Help?
-              </a>
-            </Tooltip>
-            </FormItem>
-            <FormItem label="Address">
-               <Input.Group compact>
-          <FormItem
-            name={['address', 'province']}
-            noStyle
-            rules={[{ required: true, message: 'Province is required' }]}
-          >
-            <Select placeholder="Select province">
-              <Option value="Göteborg">Göteborg</Option>
-              <Option value="Stockholm">Stockholm</Option>
-              <Option value="Malmö">Malmö</Option>
-            </Select>
+        <Form name="complex-form" onFinish={onFinish}  onFinishFailed={onFinishFailed}>
+        <AddressForm />
+        <h2>Your Paypal account</h2>
+          <FormItem name={['Your', 'Email']}  label="your Email" rules={[{ required: true }]} >
+            <AutoComplete  placeholder="Email" />
           </FormItem>
-          <FormItem
-            name={['address', 'street']}
-            noStyle
-            rules={[{ required: true, message: 'Street is required' }]}
-          >
-            <Input style={{ width: '50%' }} placeholder="Input street" />
+
+          <FormItem name={['Your', 'name']}  label="Name Card" rules={[{ required: true }]} >
+            <AutoComplete  placeholder="Your card Name" />
           </FormItem>
-        </Input.Group>
-        </FormItem>
-        
-        <FormItem name={['Type', 'Month']} label="month" rules={[{required: true, type: 'number',min: 1, max: 12 }]}>
-          <InputNumber placeholder="month"/>
-        </FormItem>
-
-        <FormItem name={['Type', 'year']} label="year" rules={[{required: true, type: 'number',min: 2020, max: 2024 }]}>
-          <InputNumber placeholder="year"/>
-        </FormItem>
-        
-
-
-      <FormItem label=" " colon={false}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </FormItem>
+          <FormItem name="password" label="Password" rules={[{ required: true, message: 'Please input your password!' }]}>
+            <Input.Password  placeholder="Please input password"/>
+          </FormItem>
   
-                </Form>
+        </Form>
     
             
         );
