@@ -22,10 +22,9 @@ const key = 'updatable';
 
 const onFinish = (values:Props) => {
     console.log('Success:', values);
-    message.loading({ content: 'Adding to cart...', key });
-  setTimeout(() => {
+  
     message.success({ content: 'Added to cart!', key, duration: 2 });
-  }, 1000);
+  
 };
       
   
