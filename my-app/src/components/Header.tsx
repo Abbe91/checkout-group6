@@ -21,22 +21,28 @@ export class Header extends Component<{}, State>{
   }
 
   render() {
-    let inCart = 0;
+    
     return (
       <CartConsumer>
         {(contextData: ContextState) => {
-          
-          console.log(contextData)
-          let totProds = contextData.cartItems.filter((product) =>{
-            return product.quantity
-           }).map((product) =>{
-            totProds =+ product.quantity
-           })
+        let inCart: number[] = [];
+        contextData.cartItems.map((product)=> {
+         inCart.push(product.quantity)
+        })
+
+        console.log(inCart)
+
+
+
+
+
+
+
           return (
-            <div style = {HeaderStyle}>
+            <div style={HeaderStyle}>
               <div>
 
-                <div style={{float: 'right'}}> {inCart} </div>
+                <div style={{ float: 'right', color: 'black' }}> {inCart.reduce((a, b) => a + b, 0)} </div>
                 <Link to="/checkout" >
                   <Avatar style={{ float: 'right' }} icon={<ShoppingCartOutlined />} />
                 </Link>
@@ -48,7 +54,7 @@ export class Header extends Component<{}, State>{
                   <Title style={{ color: 'black' }} level={3}>Checkout-Reactjs</Title>
                 </Link>
               </div>
-              </div>
+            </div>
           )
 
         }}
