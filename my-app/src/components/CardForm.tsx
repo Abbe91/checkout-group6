@@ -62,7 +62,7 @@ interface State {
 // const Demo = () => {
   const onFinish = (values:Props) => {
     console.log('Success:', values);
-    alert("Thanks for you shoping, You are moste welcome to visit us again on future")
+    alert("Thanks for your shopping, You are most welcome to visit us again on future")
     window.location.reload();
         
    
@@ -70,7 +70,7 @@ interface State {
 
   const onFinishFailed = (errorInfo:Props) => {
     console.log('Failed:', errorInfo);
-   
+    alert("Failed")
   
   };
 class CreditCardForm extends Component<Props, State> {
@@ -98,10 +98,6 @@ class CreditCardForm extends Component<Props, State> {
     }
     
     render() {
-      
-       
-       
-
        
         return (
          
