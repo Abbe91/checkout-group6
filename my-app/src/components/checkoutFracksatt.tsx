@@ -4,6 +4,7 @@ import { RadioChangeEvent } from 'antd/lib/radio';
 import { Typography, Space, Card } from 'antd';
 import { Meta } from 'antd/lib/list/Item';
 import ProductImage from './ProductImage';
+import { threadId } from 'worker_threads';
 const { Title } = Typography;
 const { Text, Link } = Typography;
 
@@ -18,8 +19,7 @@ interface Props {
 
 }
 interface State {
-    check1: boolean,
-    check2: boolean,
+    message:number,
     value: number
 }
 
@@ -50,10 +50,10 @@ class CheckoutFracksatt extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            check1: true,
-            check2: false,
+            message:1,
             value: 1,
         };
+       /*  this.handleClick =this.handleClick.bind(this) */
     }
 
 /*     handleInput = (e: any) => {
@@ -70,9 +70,17 @@ class CheckoutFracksatt extends Component<Props, State> {
         }
 
     }; */
-    handleClick(event: MouseEvent) {
-        event.preventDefault();
-        alert(event.currentTarget.tagName); // alerts BUTTON
+    handleClick() {
+       // event.preventDefault();
+       // alert(event.currentTarget.tagName); // alerts BUTTON
+        console.log("Button cliked frackt    TEST:Frackt");
+        this.setState({
+              //  message: TEST.fracktCost
+              message:3
+        }
+       
+            );
+          
     }
 
 
@@ -86,16 +94,21 @@ class CheckoutFracksatt extends Component<Props, State> {
                     return (
                         <Space direction="horizontal">
                             <Card key={shipping.fracktId} title={shipping.fracktName}
-                                style={{ width: 160, marginRight:'40px', borderRadius:'15px' }} actions={[]} >
+                                style={{ width: 160, marginRight:'30px', borderRadius:'15px' }} actions={[]} >
                                 <Text type="warning">Time for delivery:{shipping.fracktSpeed * 24} hours</Text><br /><br />
+                                <Text type="warning">Shpping Cost:{shipping.fracktCost} kr</Text><br /><br />
                                 <Text type="warning">Shipping date:</Text>
                                 <Meta description={new Date(new Date().setDate(new Date().getDate() + shipping.fracktSpeed)).toISOString().substring(0, 10)} />
                                 <br />
-                                <Button value={shipping.fracktCost} type="primary" onClick={this.handleClick} >Add Shipping</Button>
+
+                           
+                              <Button onClick={()=>this.handleClick()}>Add Shipping</Button>
+                     {/*          <Button onClick={()=>this.handleClick(shipping.fracktCost)}>Add Shipping</Button> */}
                             </Card>
                         </Space>
                     )
                 })}
+                <div>{this.state.message}</div>
             </div>
 
 
