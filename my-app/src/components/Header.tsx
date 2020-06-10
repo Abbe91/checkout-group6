@@ -39,18 +39,18 @@ export class Header extends Component<{}, State>{
 
           return (
             <div style={HeaderStyle}>
-              <div>
+              <div style={{}}>
 
-                <div style={{ float: 'right', color: 'black' }}> {inCart.reduce((a, b) => a + b, 0)} </div>
+                <div style={{ float: 'right', color: 'black', }}> <h1 style={{color: 'white'}}> {inCart.reduce((a, b) => a + b, 0)} </h1></div>
                 <Link to="/checkout" >
-                  <Avatar style={{ float: 'right' }} icon={<ShoppingCartOutlined />} />
+                  <h1 style={{ float: 'right' }}> <ShoppingCartOutlined style={{color: 'white'}}/> </h1>
                 </Link>
 
               </div>
               <div>
 
                 <Link to="/"  >
-                  <Title style={{ color: 'black' }} level={3}>Checkout-Reactjs</Title>
+                  <Title style={{ color: 'white' }} level={3}>TechStore</Title>
                 </Link>
               </div>
             </div>
