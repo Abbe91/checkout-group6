@@ -13,7 +13,7 @@ function App() {
     <div className="App">
 
       <BrowserRouter>
-   
+      <CartProvider>
         <Layout className="layout">
            
             <Layout>
@@ -22,6 +22,7 @@ function App() {
               <Footer />
             </Layout>
           </Layout>     
+          </CartProvider>
       </BrowserRouter>
 
     </div>
