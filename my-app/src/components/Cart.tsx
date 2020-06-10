@@ -58,7 +58,7 @@ export class Cart extends Component<{}, State>{
                                     :
                                     <h4>No items in cart..</h4>
                                 }
-                                <h1>Total cost for items in cart: {contextData.getTotalPrice()}</h1>
+                                <h1>Total cost for items in cart excluding shipping & VAT: {contextData.getTotalPrice() } :-</h1>
                             </div>
                         )
                     }}
