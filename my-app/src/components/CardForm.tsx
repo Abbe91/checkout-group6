@@ -119,8 +119,8 @@ class CreditCardForm extends Component<Props, State> {
                       
                   </FormItem>
 
-                  <FormItem name={['Card', 'number']} label="Card Number" rules={[{ min:12 ,required: true }]} >
-                      <Input type="number" pattern="\d*" placeholder="Card Number"   style={{width:400}} />
+                  <FormItem name="credit-card" label="Card Number" rules={[{ min:12 ,required: true }]} >
+                      <Input name="credit-card" type="number" pattern="\d*" placeholder="Card Number"   style={{width:400}} />
                     </FormItem>
 
                     <FormItem name={['Cvc', 'number']} label="CVC" rules={[{required: true,min: 3, max: 3 }]}>
