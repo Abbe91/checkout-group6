@@ -1,7 +1,6 @@
 import React, { CSSProperties, Component } from 'react';
 import './App.css';
 import { ShoppingCartOutlined } from '@ant-design/icons';
-import Views from './Views';
 import { Layout, Avatar } from 'antd';
 import { Link, withRouter } from 'react-router-dom';
 import Title from 'antd/lib/typography/Title';

@@ -1,4 +1,4 @@
-import React, {createContext, Component} from 'react';
+import React, { Component} from 'react';
 import {CartConsumer, ContextState} from './context/cartContext'; 
 import ProductImage from './ProductImage';
 import {ProductListStyle} from './ProductList';
@@ -14,9 +14,7 @@ export interface State {
 
 export class Cart extends Component<{}, State>{
 
-        constructor(props: {}){
-            super(props)
-        }
+      
         render(){
             return(
                 <CartConsumer>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Knapp from './Knapp'
-import { Form,Input,InputNumber } from 'antd';
+
+import { Form,Input,Button } from 'antd';
 
 
 
@@ -15,7 +15,15 @@ interface State {
   
 }
 
+const onFinish = (values:Props) => {
+  console.log('Success:', values);
+  alert("Success")
+};
 
+const onFinishFailed = (errorInfo:Props) => {
+  console.log('Failed:', errorInfo);
+  alert("Failed")
+};
 
 class FormSwish extends  Component<Props,State> {
   oncheckChange: any;
@@ -38,23 +46,23 @@ class FormSwish extends  Component<Props,State> {
   }
     return (
    
-      <Form  labelCol={{ span: 5 }}
-      wrapperCol={{ span: 20 }}
-      layout="horizontal" >
-         
-
-    
-          <FormItem name={['Phone', 'number']} label="phone Number:" rules={[{type: 'number',max:999999999999 ,required: true }]} >
-          
-            <InputNumber placeholder="Phone Number" style={{width:400, padding:1}} />
+      <Form  
+      name="basic" 
+                  labelCol={{ span: 5 }}
+                  wrapperCol={{ span: 20 }}
+                  layout="horizontal"
+                  onFinish={onFinish}
+                   onFinishFailed={onFinishFailed}
+                  >
+         <FormItem name={['Phone', 'number']} label="Phone Number" rules={[{ min:13, max:13 ,required: true }]} >
+              <Input type="number" pattern="\d*" placeholder="Phone Number ex: 0046 **********"   style={{width:400}} />
           </FormItem>
           
-          <FormItem wrapperCol={{ 
-
-
-          }}>
-          <Knapp />
-      </FormItem>
+          <FormItem >
+              <Button type="primary" htmlType="submit">
+              Send
+              </Button> 
+          </FormItem>
       
       </Form>
   

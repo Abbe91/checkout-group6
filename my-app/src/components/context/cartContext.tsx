@@ -2,6 +2,7 @@ import React, {createContext, Component} from 'react';
 import {ProviderState, CartItem} from './cartProvider';
 import Products, {Product} from '../Products'
 
+
 export interface ContextState extends ProviderState{
     addProductToCart: (product: Product) => void,
     removeProductFromCart: (product: Product) => void
