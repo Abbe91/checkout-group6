@@ -18,8 +18,8 @@ function Checkout(){
         <div>
 
             <Cart/>
-            <Radiobutton />
             <CheckoutFracksatt/>
+            <Radiobutton />
 
         </div>
         

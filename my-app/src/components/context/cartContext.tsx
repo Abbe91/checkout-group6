@@ -6,6 +6,7 @@ import Products, {Product} from '../Products'
 export interface ContextState extends ProviderState{
     addProductToCart: (product: Product) => void,
     removeProductFromCart: (product: Product) => void
+    getTotalPrice: () => number
 }
 
 export const CartContext = createContext<ContextState>({
@@ -16,7 +17,8 @@ export const CartContext = createContext<ContextState>({
     },
     removeProductFromCart: (product: Product) => {
         console.log("Error removing " + product.name + "to cart")
-    }
+    },
+    getTotalPrice: () => 0
 })
 
 export const CartConsumer = CartContext.Consumer

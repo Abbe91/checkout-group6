@@ -54,13 +54,23 @@ export class CartProvider extends Component<{}, ProviderState>{
         this.setState({cartItems: clonedCart}, ()=> {console.log(this.state)})
     }
 
+    getTotalPrice = () => {
+        let sum = 0
+        
+        for (const cartItem of this.state.cartItems) {
+            sum += cartItem.product.price * cartItem.quantity
+        }
+
+        return sum
+    }
+
     render(){
         return(
             <CartContext.Provider value={{
                 ...this.state,
                 addProductToCart: this.addProductToCart,
-                removeProductFromCart: this.removeProductFromCart
-
+                removeProductFromCart: this.removeProductFromCart,
+                getTotalPrice: this.getTotalPrice
             }}>
                 {this.props.children}
             </CartContext.Provider>

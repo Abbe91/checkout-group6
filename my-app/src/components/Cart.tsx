@@ -24,18 +24,14 @@ export class Cart extends Component<{}, State>{
         render(){
             return(
                 <CartConsumer>
-                    {(contextData: ContextState) =>{
-                        let inCart: number[] = [];
-                        let totalCart: number | undefined;
+                    {(contextData: ContextState) => {
                         return(
                             <div>
                                 <h1>Cart</h1>
                                 {   
                                     contextData.cartItems.length ?
                                     contextData.cartItems.map((product) =>{
-                                        inCart.push(product.quantity * product.product.price);
-                                        console.log(inCart)
-                                        totalCart = inCart.reduce((a, b) => a + b, 0);
+                                        
                                         
                                         return(
                                             <div key = {product.product.id} style = {ProductListStyle}>
@@ -62,7 +58,7 @@ export class Cart extends Component<{}, State>{
                                     :
                                     <h4>No items in cart..</h4>
                                 }
-                                <h1>Total cost for items in cart: {totalCart}</h1>
+                                <h1>Total cost for items in cart: {contextData.getTotalPrice()}</h1>
                             </div>
                         )
                     }}
