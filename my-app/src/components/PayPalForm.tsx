@@ -109,6 +109,12 @@ class PayPalForm extends Component<Props, State> {
           <FormItem name="password" label="Password" rules={[{ required: true, message: 'Please input your password!' }]}>
             <Input.Password  placeholder="Please input password"/>
           </FormItem>
+          <FormItem >
+          <Button type="primary" htmlType="submit">
+          Send
+
+          </Button> 
+          </FormItem>
   
         </Form>
     
