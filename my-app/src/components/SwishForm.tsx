@@ -17,7 +17,8 @@ interface State {
 
 const onFinish = (values:Props) => {
   console.log('Success:', values);
-  alert("Success")
+  alert("Thanks for your shopping, You are most welcome to visit us again on future")
+  window.location.reload();
 };
 
 const onFinishFailed = (errorInfo:Props) => {
