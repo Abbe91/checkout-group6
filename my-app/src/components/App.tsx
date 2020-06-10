@@ -11,18 +11,14 @@ import {CartProvider} from './context/cartProvider';
 function App() {
   return (
     <div className="App">
-
-      <BrowserRouter>
-      <CartProvider>
-        <Layout className="layout">
-           
+      <BrowserRouter>   
+          <Header />
+        <Layout className="layout">           
             <Layout>
-            <Header />
               <Content />              
-              <Footer />
             </Layout>
-          </Layout>     
-          </CartProvider>
+          </Layout>  
+          <Footer />   
       </BrowserRouter>
 
     </div>

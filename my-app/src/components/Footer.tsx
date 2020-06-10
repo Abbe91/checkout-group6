@@ -2,13 +2,11 @@ import React from 'react';
 import './App.css';
 import { Layout } from 'antd';
 
-
-
 const { Footer } = Layout;
 
 function footer(){
     return(
-        <Footer style={{ backgroundColor: "gray", textAlign: "center"}}>CopyRight To Abbe, Ensar, and Anu  ç </Footer>
+        <Footer style={{ backgroundColor: "#0000ff", textAlign: "center", color:"white"}}>CopyRight To Abbe, Ensar, and Anu  ç </Footer>
   );
   
   }

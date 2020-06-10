@@ -65,9 +65,8 @@ export class Header extends Component<{}, State>{
 
 const HeaderStyle: CSSProperties = {
   padding: 10,
-  maxWidth: '720px',
-  marginTop: '0px',
-  backgroundColor: 'white'
+  marginTop:'0px',
+  backgroundColor:'blue'
 
 };
 
