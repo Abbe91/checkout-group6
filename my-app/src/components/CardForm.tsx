@@ -116,16 +116,16 @@ class CreditCardForm extends Component<Props, State> {
 
                   <FormItem name={['Your', 'name']}  label="Name Card" rules={[{ required: true }]} >
                     <AutoComplete  placeholder="Your card Name" />
-                      
                   </FormItem>
 
-                  <FormItem name="credit-card" label="Card Number" rules={[{ min:12 ,required: true }]} >
-                      <Input name="credit-card" type="number" pattern="\d*" placeholder="Card Number"   style={{width:400}} />
+                  <FormItem name={['cardnumber', 'cardnumber']}label="Card-number" rules={[{ min:12 ,required: true }]} >
+                      <Input name="cardnumber" type="number" pattern="\d*" placeholder="frmCCNum"   style={{width:400}} />
                     </FormItem>
 
-                    <FormItem name={['Cvc', 'number']} label="CVC" rules={[{required: true,min: 3, max: 3 }]}>
-                    <AutoComplete dataSource={dataSource} placeholder="Your card Name" />
+                    <FormItem name={['cvc', 'cvc']} label="CVC" rules={[{required: true,min: 3, max: 3 }]}>
+                    <Input  type="number" name="cvc"  placeholder="Your card Name" />
                     </FormItem>
+
 
                     <h1>expiry date</h1>
                     <FormItem name={['Type', 'Month']} label="month" rules={[{required: true, type: 'number',min: 1, max: 12 }]}>
