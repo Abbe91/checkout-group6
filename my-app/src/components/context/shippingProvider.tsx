@@ -27,9 +27,9 @@ export class ShippingProvider extends Component<{}, ProviderState>{
     
 
 
-    setPrice = (shipping: shipping) => {
+    setPrice = (shipping: Frackts) => {
         
-        this.setState({fracktCheck.currentPrice: Shipping},  ()=> {console.log(this.state.fracktCheck)})
+        this.setState({currentPrice: Shipping},  ()=> {console.log(this.state.fracktCheck)})
     }
 
 
