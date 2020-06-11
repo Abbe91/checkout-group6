@@ -38,7 +38,7 @@ export class Complete extends React.Component {
     return (
       <AutoComplete
         dataSource={dataSource}
-        style={{ width: 200 }}
+       
         onSelect={onSelect}
         onSearch={this.handleSearch}
       >

@@ -81,6 +81,7 @@ export class Cart extends Component<{}, State>{
         width: 200,
         padding: 0,
         borderRadius: 15,
+        textAlign:"center",
         backgroundColor: '#FFF',
         WebkitFilter: "drop-shadow(0px 0px 5px #555)",
         filter: "drop-shadow(0px 0px 5px #555)",

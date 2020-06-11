@@ -32,7 +32,7 @@ export class Complete extends React.Component {
     return (
       <AutoComplete
         dataSource={dataSource}
-        style={{ width: 200 }}
+        
         onSelect={onSelect}
         onSearch={this.handleSearch}
       >
@@ -98,8 +98,8 @@ class CreditCardForm extends Component<Props, State> {
          
                 <Form 
                   name="basic" 
-                  labelCol={{ span: 5 }}
-                  wrapperCol={{ span: 20 }}
+                  // labelCol={{ span: 7 }}
+                  // wrapperCol={{ span: 22 }}
                   layout="horizontal"
                   onFinish={onFinish}
                  
@@ -116,7 +116,7 @@ class CreditCardForm extends Component<Props, State> {
                   </FormItem>
 
                   <FormItem name={['cardnumber', 'cardnumber']}label="Card-number" rules={[{ min:12 ,required: true }]} >
-                      <Input name="cardnumber" type="number" pattern="\d*" placeholder="frmCCNum"   style={{width:400}} />
+                      <Input name="cardnumber" type="number" pattern="\d*" placeholder="frmCCNum"   />
                     </FormItem>
 
                     <FormItem name={['cvc', 'cvc']} label="CVC" rules={[{required: true,min: 3, max: 3 }]}>
