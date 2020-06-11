@@ -49,9 +49,12 @@
   background: #fafafa;
 
 }
-.layout{
-  width: min-content;
+@media only screen and (max-width: 600px) {
+  .layout{
+    width: min-content;
+  }
 }
+
 
 @keyframes App-logo-spin {
   from {
