@@ -26,7 +26,9 @@ class Radiobutton extends React.Component {
      
     };
     const { value } = this.state;
+   
     return (
+      <div>
       <Radio.Group onChange={this.onChange} value={value}>
         <Radio style={radioStyle} value={1}>
           Pay with Card 
@@ -42,10 +44,12 @@ class Radiobutton extends React.Component {
         </Radio>
         <Radio style={radioStyle} value={4}>
           More...
-          {value === 4 ? <Input style={{ width: 100, marginLeft: 10 }} /> : null}
+          {value === 4 ? <Input /> : null}
         </Radio>
      
       </Radio.Group>
+     
+      </div>
     );
   }
 }
