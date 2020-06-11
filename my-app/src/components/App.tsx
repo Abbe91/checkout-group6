@@ -14,11 +14,9 @@ function App() {
       <BrowserRouter>   
       <CartProvider>
           <Header />
-        <Layout className="layout">           
-            <Layout>
+            <Layout className="layout">           
               <Content />              
             </Layout>
-          </Layout>  
           </CartProvider>
           <Footer />   
       </BrowserRouter>

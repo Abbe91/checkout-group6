@@ -29,6 +29,7 @@
 .App-link {
   color: #61dafb;
 }
+
 .ant-drawer-body{
   position: relative;
   height: 300px;
@@ -47,6 +48,9 @@
   overflow: hidden;
   background: #fafafa;
 
+}
+.layout{
+  width: min-content;
 }
 
 @keyframes App-logo-spin {
