@@ -76,7 +76,7 @@ class CheckoutFracksatt extends Component<Props, State> {
                     return (
                         <Space direction="horizontal">
                             <Card key={shipping.fracktId} title={shipping.fracktName}
-                                style={{ width: 160, marginRight: '30px', borderRadius: '15px' }} actions={[]} >
+                                style={{  marginRight: '30px', borderRadius: '15px' }} actions={[]} >
                                 <Text type="warning">Time for delivery:{shipping.fracktSpeed * 24} hours</Text><br /><br />
                                 <Text type="warning">Shpping Cost:{shipping.fracktCost} kr</Text><br /><br />
                                 <Text type="warning">Shipping date:</Text>
