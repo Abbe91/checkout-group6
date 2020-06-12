@@ -6,7 +6,7 @@ const { Footer } = Layout;
 
 function footer(){
     return(
-        <Footer style={{ backgroundColor: "#0000ff", textAlign: "center", color:"white", position: "fixed", bottom: '0', left: '0', right: '0'}}>CopyRight To Abbe, Ensar, and Anu  ç </Footer>
+        <Footer style={{ backgroundColor: "#0000ff", textAlign: "center", color:"white"}}>CopyRight To Abbe, Ensar, and Anu  ç </Footer>
   );
   
   }
