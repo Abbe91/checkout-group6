@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 
 import { Form,Input,InputNumber,Button, AutoComplete,Tooltip ,Select } from 'antd';
-import AddressForm from './AddressCheckOut';
+import Address from './AddressCheckOut';
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -99,8 +99,8 @@ class PayPalForm extends Component<Props, State> {
   
         return (
          
-        <Form name="complex-form" onFinish={onFinish}  onFinishFailed={onFinishFailed}>
-        <AddressForm />
+        <Form layout="vertical" name="complex-form" onFinish={onFinish}  onFinishFailed={onFinishFailed}>
+        <Address />
         <h2>Your Paypal account</h2>
           <FormItem name={['Your', 'Email']}  label="your Email" rules={[{ required: true }]} >
             <AutoComplete  placeholder="Email" />
