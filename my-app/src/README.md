@@ -14,8 +14,13 @@ Description:
         o	Shipping Address
         o	Card information
         o	responsive design
-  
-  Build/Run
+
+Links:
+
+Ant Design: https://ant.design/
+Github: https://github.com/Abbe91/checkout-group6
+
+Build/Run
   
   Requirements
 •	Node.js
