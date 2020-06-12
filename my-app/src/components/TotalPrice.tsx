@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
 import {CartConsumer, ContextState} from './context/cartContext'; 
+import CheckoutFracksatt from './checkoutFracksatt';
 
 
 
@@ -8,29 +9,25 @@ export interface State {
 }
 
 
-
 export class TotalPrice extends Component<{}, State>{
-
-
 
     constructor(props: {}){
         super(props)
     }
       
+
+
         render(){
             return(
                 <CartConsumer>
-                    {(contextData: ContextState) => {
-                        return(
-                            <div>
-                                <h1>Total price including shipping & VAT:</h1>
-                                {   
-                                   
-                                <h1> {contextData.getTotalPrice()*1.25} :- </h1>
-                                }
-                            </div>
-                        )
-                    }}
+                    {({ getTotalPrice, selectedShipping }) => (
+                        <div>
+                            <h2>Total price including shipping & VAT:</h2> 
+                                
+                            <h2> {getTotalPrice() + selectedShipping.cost} :- </h2>
+                            <p> VAT: {(getTotalPrice() + selectedShipping.cost) * 0.2} :- </p>
+                        </div>
+                    )}
                
                 </CartConsumer>
             )

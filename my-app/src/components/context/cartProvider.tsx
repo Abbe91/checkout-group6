@@ -1,25 +1,28 @@
 import React, {createContext, Component} from 'react'
 import {CartContext} from './cartContext'
 import {Product} from '../Products'
+import { Shipping, shippingAlternatives } from '../checkoutFracksatt'
 
 export interface CartItem {
     product: Product
     quantity: number
 }
-export interface ProviderState{
+export interface ProviderState {
     cartItems: CartItem[]
-    
+    selectedShipping: Shipping
 }
 
-export class CartProvider extends Component<{}, ProviderState>{
+export class CartProvider extends Component<{}, ProviderState> {
 
     constructor(props: {}) {
         super(props)
         this.state = {
-            cartItems: []
-            
+            cartItems: [],
+            selectedShipping: shippingAlternatives[0]
         }
     }
+
+    setSelectedShipping = (shipping: Shipping) => this.setState({ selectedShipping: shipping })
     
     addProductToCart = (product: Product) => {
         const clonedCart:CartItem[] = Object.assign([], this.state.cartItems)
@@ -70,7 +73,8 @@ export class CartProvider extends Component<{}, ProviderState>{
                 ...this.state,
                 addProductToCart: this.addProductToCart,
                 removeProductFromCart: this.removeProductFromCart,
-                getTotalPrice: this.getTotalPrice
+                getTotalPrice: this.getTotalPrice,
+                setSelectedShipping: this.setSelectedShipping
             }}>
                 {this.props.children}
             </CartContext.Provider>
