@@ -1,4 +1,6 @@
 Techstore
+
+
 This is a simple mobile shopping cart application with checkout prototype that shows how react can be used to build a user friendly application using Types. Used Ant Design for this project.
 
 Description:
