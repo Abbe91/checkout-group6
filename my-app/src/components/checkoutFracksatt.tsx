@@ -1,98 +1,78 @@
-import React, { Component, CSSProperties,MouseEvent, useState } from 'react';
+import React, { Component, CSSProperties, MouseEvent, useState } from 'react';
 import { Form, Input, Radio, Button, } from 'antd';
 import { RadioChangeEvent } from 'antd/lib/radio';
 import { Typography, Space, Card } from 'antd';
 import { Meta } from 'antd/lib/list/Item';
 import ProductImage from './ProductImage';
 import { threadId } from 'worker_threads';
-
+import { CartConsumer } from './context/cartContext';
 const { Title } = Typography;
 const { Text, Link } = Typography;
 
 
-interface Frackt {
-    fracktId: number,
-    fracktName: string,
-    fracktSpeed: number,
-    fracktCost: number
-}
-interface Props {
-
-}
-interface State {
-    message: number,
-    value: number
+export interface Shipping {
+    id: number,
+    name: string,
+    speed: number,
+    cost: number
 }
 
-let fracktCheck: Frackt[] = [
+export const shippingAlternatives: Shipping[] = [
     {
-        fracktId: 1,
-        fracktName: 'Postnord',
-        fracktSpeed: 3,
-        fracktCost: 50
+        id: 1,
+        name: 'Postnord',
+        speed: 3,
+        cost: 50
     },
     {
-        fracktId: 2,
-        fracktName: 'Parcel Select',
-        fracktSpeed: 2,
-        fracktCost: 100
+        id: 2,
+        name: 'Parcel Select',
+        speed: 2,
+        cost: 100
     },
     {
-        fracktId: 3,
-        fracktName: 'Express Post',
-        fracktSpeed: 1,
-        fracktCost: 150
+        id: 3,
+        name: 'Express Post',
+        speed: 1,
+        cost: 150
     },
 ];
 
-type shipperType = 'Postnord' | 'Parcel Select' | 'Express Post';
-class CheckoutFracksatt extends Component<Props, State> {
 
-    constructor(props: Props) {
-        super(props);
-        this.state = {
-            message: 50,
-            value: 1,
-        };
-    }
+interface Props {}
 
-    handleClick(shipping: Frackt) {
-        this.setState({
-            message: shipping.fracktCost
-        }
-
-        );
-
-    }
+class CheckoutFracksatt extends Component<Props> {
 
 
     render() {
-        const { value } = this.state;
         return (
-            <div>
-                <br />
-                <Title level={4}>Freight Options</Title>
-                {fracktCheck.map((shipping) => {
-                    return (
-                        <Space direction="horizontal">
-                            <Card key={shipping.fracktId} title={shipping.fracktName}
-                                style={{  marginRight: '30px', borderRadius: '15px' }} actions={[]} >
-                                <Text type="warning">Time for delivery:{shipping.fracktSpeed * 24} hours</Text><br /><br />
-                                <Text type="warning">Shpping Cost:{shipping.fracktCost} kr</Text><br /><br />
-                                <Text type="warning">Shipping date:</Text>
-                                <Meta description={new Date(new Date().setDate(new Date().getDate() + shipping.fracktSpeed)).toISOString().substring(0, 10)} />
-                                <br />
+            <CartConsumer>
+                {({ selectedShipping, setSelectedShipping }) => (
+                    <div>
+                        <br />
+                        <Title level={4}>Freight Options</Title>
+                        {shippingAlternatives.map((shipping) => {
+                            return (
+                                <Space direction="horizontal">
+                                    <Card key={shipping.id} title={shipping.name}
+                                        style={{ marginRight: '30px', borderRadius: '15px' }} actions={[]} >
+                                        <Text type="warning">Time for delivery:{shipping.speed * 24} hours</Text><br /><br />
+                                        <Text type="warning">Shpping Cost:{shipping.cost} kr</Text><br /><br />
+                                        <Text type="warning">Delivery date:</Text>
+                                        <Meta description={new Date(new Date().setDate(new Date().getDate() + shipping.speed)).toISOString().substring(0, 10)} />
+                                        <br />
 
 
-                                <Button onClick={() => this.handleClick(shipping)}>Add Shipping</Button>
+                                        <Button onClick={() => setSelectedShipping(shipping)}>Select Shipping</Button>
 
-                            </Card>
-                        </Space>
-                    )
-                })}
-                <div><h4>Shipping cost selected: {this.state.message}</h4></div>
-            </div>
-
+                                    </Card>
+                                </Space>
+                            )
+                        })}
+                        <div><h4>Shipping cost selected: {selectedShipping.cost}</h4></div>
+                    </div>
+                )}
+            </CartConsumer>
 
         );
     }

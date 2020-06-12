@@ -18,7 +18,7 @@ function App() {
               <Content />              
             </Layout>
           </CartProvider>
-          <Footer />   
+        <Footer />   
       </BrowserRouter>
 
     </div>
