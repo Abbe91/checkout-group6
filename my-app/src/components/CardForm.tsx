@@ -100,7 +100,7 @@ class CreditCardForm extends Component<Props, State> {
                   name="basic" 
                   // labelCol={{ span: 7 }}
                   // wrapperCol={{ span: 22 }}
-                  layout="horizontal"
+                  layout="vertical"
                   onFinish={onFinish}
                  
                    onFinishFailed={onFinishFailed}
