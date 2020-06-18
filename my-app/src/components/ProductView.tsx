@@ -39,11 +39,11 @@ export class ProductView extends React.Component<Props & RouteProps, State>{
                         return (
                             <div  style={{ textAlign: 'center' }}>
                                 <h1 style ={prodName}>{productToDisplay[0].name} </h1>
-                                <div>
-                                    <ProductImage img={productToDisplay[0].img} />
+                                <div style ={{padding:'35px', textAlign:'center'}}>
+                                    <ProductImage  img={productToDisplay[0].img} />
                                     <hr />
                                 </div>
-                                <h4 style={{ textAlign: 'center' }}>{productToDisplay[0].description} </h4>
+                                <h4 style={{ textAlign: 'center',padding:'15px' }}>{productToDisplay[0].description} </h4>
                                 <h1 style={{ textAlign: 'center' }}>{productToDisplay[0].price} </h1>
                                 <Button style = {ButtonStyle} onClick={() => contextData.addProductToCart(productToDisplay[0])} type="primary" icon={<PlusOutlined />}>
                                     Add to cart
@@ -62,9 +62,10 @@ export class ProductView extends React.Component<Props & RouteProps, State>{
 }
 let prodName: CSSProperties = { 
     position: 'absolute',
-    marginLeft: '80px',
+    marginLeft: '60px',    
     fontFamily:'Georgia, serif;', 
     textAlign: 'center',
+    padding:'20px',
     borderRadius: 15
 }
 
@@ -72,13 +73,14 @@ let ButtonStyle: CSSProperties = {
     margin: 0, 
     textAlign: 'center', 
     borderRadius: 15
+
 }
 let ProductListStyle: CSSProperties = {
 
     display: 'inline-block',
-    marginTop: 20,
-    height: 500,
-    width: 230,
+    marginTop: 60,
+    height: 650,
+    width: 260,
     padding: 0,   
     borderRadius: 15,
     backgroundColor: '#FFF',
