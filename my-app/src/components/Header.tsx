@@ -43,14 +43,14 @@ export class Header extends Component<{}, State>{
 
                 <div style={{ float: 'right', color: 'black', }}> <h1 style={{color: 'white'}}> {inCart.reduce((a, b) => a + b, 0)} </h1></div>
                 <Link to="/checkout" >
-                  <h1 style={{ float: 'right' }}> <ShoppingCartOutlined style={{color: 'white'}}/> </h1>
+                  <h1 style={{ float: 'right' }}> <ShoppingCartOutlined style={{color: 'white',paddingTop:'20px'}}/> </h1>
                 </Link>
 
               </div>
               <div>
 
                 <Link to="/"  >
-                  <Title style={{ color: 'white' }} level={3}>TechStore</Title>
+                  <Title style={{ color: 'white', paddingTop:'10px' }} level={2}>TechStore</Title>
                 </Link>
               </div>
             </div>
@@ -64,9 +64,13 @@ export class Header extends Component<{}, State>{
 }
 
 const HeaderStyle: CSSProperties = {
+
   padding: 10,
-  marginTop:'0px',
-  backgroundColor:'blue'
+  marginTop:"-60px",
+  backgroundColor:'blue',
+  position:"fixed",
+  width:"100%",
+  zIndex:1  
 
 };
 

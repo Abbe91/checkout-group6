@@ -13,8 +13,8 @@ function App() {
     <div className="App">
       <BrowserRouter>   
       <CartProvider>
-          <Header />
-            <Layout className="layout">           
+          <Header/>
+            <Layout className="layout" style={{marginTop:"50px"}}>           
               <Content />              
             </Layout>
           </CartProvider>

@@ -6,8 +6,7 @@ interface Props{
 function ProductImage(props:Props){
 
 
-    let imageStyle:CSSProperties  ={
-        marginLeft: 25,
+    let imageStyle:CSSProperties  ={        
         marginTop: 20,
         width: 150,
         height: 250,
