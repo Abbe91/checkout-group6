@@ -53,20 +53,22 @@ class CheckoutFracksatt extends Component<Props> {
                         <Title level={4}>Freight Options</Title>
                         {shippingAlternatives.map((shipping) => {
                             return (
-                                <Space direction="horizontal">
-                                    <Card key={shipping.id} title={shipping.name}
-                                        style={{ marginRight: '30px', borderRadius: '15px' }} actions={[]} >
-                                        <Text type="warning">Time for delivery:{shipping.speed * 24} hours</Text><br /><br />
-                                        <Text type="warning">Shpping Cost:{shipping.cost} kr</Text><br /><br />
-                                        <Text type="warning">Delivery date:</Text>
-                                        <Meta description={new Date(new Date().setDate(new Date().getDate() + shipping.speed)).toISOString().substring(0, 10)} />
-                                        <br />
+                                <div>
+                                <Radio.Group onChange={() => setSelectedShipping(shipping)}
+                                    key={shipping.id}
+                                    value={shipping.name}>
+                                    <Radio value={1} >
 
+                                        <Text type="warning">Time for delivery:{shipping.speed * 24} hours</Text><br />
+                                        <Text type="warning"  style={{ marginLeft: '26px'}}>Shpping Cost:{shipping.cost} kr</Text><br />
+                                        <Text type="warning"  style={{ marginLeft: '26px'}}>Delivery date: <Meta style={{ marginLeft: '26px'}} description={new Date(new Date().setDate(new Date().getDate() + shipping.speed)).toISOString().substring(0, 10)} />
+                                        </Text><br />
 
-                                        <Button onClick={() => setSelectedShipping(shipping)}>Select Shipping</Button>
+                                    </Radio>
 
-                                    </Card>
-                                </Space>
+                                </Radio.Group>
+
+                            </div>
                             )
                         })}
                         <div><h4>Shipping cost selected: {selectedShipping.cost}</h4></div>
