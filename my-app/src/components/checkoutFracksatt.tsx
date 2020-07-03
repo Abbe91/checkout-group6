@@ -54,7 +54,7 @@ class CheckoutFracksatt extends Component<Props> {
                         {shippingAlternatives.map((shipping) => {
                             return (
                                 <Space direction="horizontal">
-                                    <Card key={shipping.id} title={shipping.name}
+                                    <Card key={shipping.id}   title={shipping.name}
                                         style={{ marginRight: '30px', borderRadius: '15px' }} actions={[]} >
                                         <Text type="warning">Time for delivery:{shipping.speed * 24} hours</Text><br /><br />
                                         <Text type="warning">Shpping Cost:{shipping.cost} kr</Text><br /><br />
@@ -62,8 +62,7 @@ class CheckoutFracksatt extends Component<Props> {
                                         <Meta description={new Date(new Date().setDate(new Date().getDate() + shipping.speed)).toISOString().substring(0, 10)} />
                                         <br />
 
-
-                                        <Button onClick={() => setSelectedShipping(shipping)}>Select Shipping</Button>
+                                        <Button style={selectedShipping.id == shipping.id ? active : inactive} onClick={() => setSelectedShipping(shipping)}>{selectedShipping.id == shipping.id ? "Selected" : "Select Shipping"}</Button>
 
                                     </Card>
                                 </Space>
@@ -77,6 +76,18 @@ class CheckoutFracksatt extends Component<Props> {
         );
     }
 
+}
+
+let active: CSSProperties = {
+    marginRight: '30px', 
+    borderRadius: '15px',
+    backgroundColor: 'blue',
+    color: 'white'
+}
+
+let inactive: CSSProperties = {
+    marginRight: '30px', 
+    borderRadius: '15px',
 }
 
 export default CheckoutFracksatt;
