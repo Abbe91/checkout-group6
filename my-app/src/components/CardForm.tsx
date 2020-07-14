@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 
 import { Form,Input,InputNumber,Button, AutoComplete  } from 'antd';
-
+import CartConsumer from './checkoutFracksatt'
 import Address from './AddressCheckOut';
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -105,6 +105,7 @@ class CreditCardForm extends Component<Props, State> {
                  
                    onFinishFailed={onFinishFailed}
                   >
+                   <CartConsumer/>
                   <Address />
                   <h2>Card information</h2>
                   <FormItem name={['Your', 'Email']}  label="your Email" rules={[{ required: true }]} >

@@ -25,6 +25,7 @@ export class ProductView extends React.Component<Props & RouteProps, State>{
     }
     render() {
         console.log(this.props.location)
+        
         let test = this
 
         let newString = test.props.location.pathname.replace("/product/", "");
@@ -34,6 +35,7 @@ export class ProductView extends React.Component<Props & RouteProps, State>{
         });
         return (
             <div style={ProductListStyle}>
+            
                 <CartConsumer>
                     {(contextData: ContextState) => {
                         return (
@@ -42,6 +44,7 @@ export class ProductView extends React.Component<Props & RouteProps, State>{
                                 <div style ={{padding:'35px', textAlign:'center'}}>
                                     <ProductImage  img={productToDisplay[0].img} />
                                     <hr />
+                                
                                 </div>
                                 <h4 style={{ textAlign: 'center',padding:'15px' }}>{productToDisplay[0].description} </h4>
                                 <h1 style={{ textAlign: 'center' }}>{productToDisplay[0].price} </h1>
